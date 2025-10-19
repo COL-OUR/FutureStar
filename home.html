@@ -50,18 +50,20 @@
 /* Large screens: 3 cards per row */
 @media (min-width: 55em) {
   .layout {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr); /* exactly 3 cards per row */
-    gap: 1rem;
+    display: flex;
+    flex-wrap: nowrap;        /* keep cards in one row */
+    justify-content: space-between; /* add spacing */
+    max-width: calc(3 * 15rem + 2rem); /* exactly 3 cards width + gaps */
+    margin: 0 auto;           /* center container */
   }
 
   .card_wrap {
-    width: auto;          /* let grid handle width */
-    transition: width 0.3s ease; 
+    flex: 1 1 15rem;          /* each card takes ~1/3 of container */
+    transition: width 0.3s ease;
   }
 
   .card_wrap:is(:hover, .open) {
-    width: 190%;          /* expands in width, squeezing neighbors */
+    width: 190%;              /* expands, squeezes others */
   }
 }
 
