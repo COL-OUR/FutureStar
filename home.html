@@ -20,45 +20,26 @@
   display: block;
   max-width: 100%;
   height: auto;
+  /* Optional: smooth responsive width */
+  width: clamp(50px, 10vw, 120px);
 }
 
-/* Small screens */
-@media (max-width: 55em) {
-  .logo_mini {
-    width: 50px;  /* adjust to your preference */
-  }
+/* Default card state */
+.mask_wrap {
+  grid-template-rows: 0fr;
+  overflow: hidden;
+  transition: grid-template-rows 0.4s ease;
 }
 
-/* Medium screens */
-@media (min-width: 55em) and (max-width: 80em) {
-  .logo_mini {
-    width: 80px;
-  }
+/* When a card is clicked (has .open class) */
+.card_wrap.open .mask_wrap {
+  grid-template-rows: 1fr;
 }
 
-/* Large screens */
-@media (min-width: 80em) {
-  .logo_mini {
-    width: 120px;
-  }
+/* Dim other cards when one is open (Chrome/Safari/Edge only) */
+.layout:has(.card_wrap.open) .card_wrap:not(.open) .card_content {
+  opacity: 0.4;
 }
-   
-  /* Default card state */
-  .mask_wrap {
-    grid-template-rows: 0fr;
-    overflow: hidden;
-    transition: grid-template-rows 0.4s ease;
-  }
-
-  /* When a card is clicked (has .open class) */
-  .card_wrap.open .mask_wrap {
-    grid-template-rows: 1fr;
-  }
-
-  /* Dim other cards when one is open */
-  .layout:has(.card_wrap.open) .card_wrap:not(.open) .card_content {
-    opacity: 0.4;
-  }
 
 /* Small screens: stacked */
 @media (max-width: 55em) {
@@ -70,55 +51,67 @@
 
   .card_wrap {
     width: 100%;
-    transition: none;
-  }
-
-  /* Prevent expansion on small screens */
-  .card_wrap:is(:hover, .open) {
-    flex: 1; /* Keep default width */
+    transition: none; /* prevent expansion */
+    flex: none; /* keep default width */
   }
 }
 
-/* Large screens: 3 cards per row, flexible widths */
-@media (min-width: 60em) {
+/* Medium screens: horizontal without expansion */
+@media (min-width: 55em) and (max-width: 80em) {
   .layout {
     display: flex;
     gap: 1rem;
   }
 
   .card_wrap {
-    flex: 1; /* All cards share available space equally */
-    min-width: 0; /* Needed to allow shrinking */
-    transition: flex 0.3s ease;
-  }
-
-  /* Expanded card */
-  .card_wrap:is(:hover, .open) {
-    flex: 2; /* Expanded card takes twice the width */
+    flex: 1;
+    min-width: 0; /* allow shrinking if needed */
+    transition: none; /* prevent hover expansion */
   }
 }
 
+/* Large screens: hover/expanded */
+@media (min-width: 80em) {
+  .layout {
+    display: flex;
+    gap: 1rem;
+  }
 
+  .card_wrap {
+    flex: 1;
+    min-width: 0;
+    transition: flex 0.3s ease;
+  }
+
+  .card_wrap:is(:hover, .open) {
+    flex: 2;
+  }
+}
 </style>
 
 <script>
-  // Add toggle behavior on click
-  document.addEventListener("DOMContentLoaded", () => {
-    const cards = document.querySelectorAll(".card_wrap");
+document.addEventListener("DOMContentLoaded", () => {
+  const cards = document.querySelectorAll(".card_wrap");
 
-    cards.forEach(card => {
-      card.addEventListener("click", () => {
-        // Optional: close other cards when one opens
-        cards.forEach(c => {
-          if (c !== card) c.classList.remove("open");
-        });
-
-        // Toggle the clicked one
-        card.classList.toggle("open");
+  cards.forEach(card => {
+    card.addEventListener("click", () => {
+      cards.forEach(c => {
+        if (c !== card) c.classList.remove("open");
       });
+      card.classList.toggle("open");
     });
   });
+
+  // Close button behavior
+  document.querySelectorAll(".close_button").forEach(btn => {
+    btn.addEventListener("click", e => {
+      e.stopPropagation();
+      btn.closest(".card_wrap").classList.remove("open");
+    });
+  });
+});
 </script>
+
 
    </head>
    <body class="body-2">
