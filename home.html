@@ -60,6 +60,25 @@
     opacity: 0.4;
   }
 
+/* Small screens: stacked */
+@media (max-width: 55em) {
+  .layout {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .card_wrap {
+    width: 100%;
+    transition: none;
+  }
+
+  /* Prevent expansion on small screens */
+  .card_wrap:is(:hover, .open) {
+    flex: 1; /* Keep default width */
+  }
+}
+
 /* Large screens: 3 cards per row, flexible widths */
 @media (min-width: 60em) {
   .layout {
@@ -73,23 +92,9 @@
     transition: flex 0.3s ease;
   }
 
-  /* Expanded card only on large screens */
+  /* Expanded card */
   .card_wrap:is(:hover, .open) {
     flex: 2; /* Expanded card takes twice the width */
-  }
-}
-
-/* Small screens: stacked */
-@media (max-width: 55em) {
-  .layout {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-  }
-
-  .card_wrap {
-    width: 100%;
-    transition: none;
   }
 }
 
