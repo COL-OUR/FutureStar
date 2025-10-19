@@ -16,6 +16,33 @@
       <style>.w-webflow-badge { position: fixed !important; display: None !important; visibility: hidden !important; } </style>
       
 <style>
+.logo_mini {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/* Small screens */
+@media (max-width: 55em) {
+  .logo_mini {
+    width: 50px;  /* adjust to your preference */
+  }
+}
+
+/* Medium screens */
+@media (min-width: 55em) and (max-width: 80em) {
+  .logo_mini {
+    width: 80px;
+  }
+}
+
+/* Large screens */
+@media (min-width: 80em) {
+  .logo_mini {
+    width: 120px;
+  }
+}
+   
   /* Default card state */
   .mask_wrap {
     grid-template-rows: 0fr;
@@ -100,7 +127,7 @@
             </svg>
          </div>
          <div class="div-block-5">
-            <img alt="" class="logo_mini" height="Auto" id="w-node-e4a2441c-1795-8312-f678-b533d58d3598-6517088a" loading="lazy" src="https://cdn.prod.website-files.com/68f2b8c96dbaec6591ca9be7/68f396aedf65e4092addaedc_FutureStar_Purple.svg" width="Auto"/>
+            <img alt="" class="logo_mini" id="w-node-e4a2441c-1795-8312-f678-b533d58d3598-6517088a" loading="lazy" src="https://cdn.prod.website-files.com/68f2b8c96dbaec6591ca9be7/68f396aedf65e4092addaedc_FutureStar_Purple.svg"/>
             <div class="futurestar" id="w-node-_6538fcf8-f729-d6c8-df9c-eed554fa10c1-6517088a">FutureStar</div>
             <svg app="ikonik" class="menu_icon" data-w-id="58a356e2-4fa3-bc4e-f7e2-bda74b48ab24" fill="none" height="64" viewbox="0 0 24 24" width="64" xmlns="http://www.w3.org/2000/svg">
                <path app="ikonik" class="menu_path_3" clip-rule="evenodd" d="M19.75 17C19.75 16.5858 19.4142 16.25 19 16.25H5C4.58579 16.25 4.25 16.5858 4.25 17C4.25 17.4142 4.58579 17.75 5 17.75H19C19.4142 17.75 19.75 17.4142 19.75 17Z" fill="currentColor" fill-rule="evenodd"></path>
