@@ -33,10 +33,7 @@
     opacity: 0.4;
   }
 
-  /* Large screen layout */
-/* Large screens only */
-/* Large screens: max 3 cards per row */
-/* Small screens: stacked */
+  /* Small screens: stacked */
 @media (max-width: 54.99em) {
   .layout {
     display: flex;
@@ -45,48 +42,30 @@
   }
 
   .card_wrap {
-    width: 100%; /* Full width for stacked cards */
+    width: 100%;
+    transition: none;
   }
 }
 
-/* Large screens: 3 cards per row */
+/* Large screens: 3 cards per row, flexible widths */
 @media (min-width: 55em) {
   .layout {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr); /* 3 cards per row */
+    display: flex;
     gap: 1rem;
   }
 
   .card_wrap {
-    width: 100%; /* Each grid item fills its column */
-    transition: transform 0.3s ease; /* For hover effect */
+    flex: 1; /* All cards share available space equally */
+    min-width: 0; /* Needed to allow shrinking */
+    transition: flex 0.3s ease;
   }
 
-  /* Optional hover expand */
-  .card_wrap:hover {
-    transform: scale(1.1);
-    z-index: 2; /* Make it “pop” above neighbors */
-  }
-}
-
-
-
-/* Small screens */
-@container (width < 55em) {
-  .layout {
-      display: flex;
-      flex-wrap: nowrap;
-      grid-column-gap: 1rem;
-      grid-row-gap: 1rem;
-      flex-direction: column;
-  }
-
-  /* No hover or width changes */
-  .card_wrap {
-    flex: 1 1 100%;
-    max-width: 100%;
+  /* Expanded card */
+  .card_wrap:is(:hover, .open) {
+    flex: 2; /* Expanded card takes twice the width */
   }
 }
+
    
 </style>
 
