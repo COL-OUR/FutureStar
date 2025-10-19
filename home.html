@@ -23,15 +23,14 @@
 /* Default for small/medium screens */
 .logo_mini {
   display: block;
-  max-width: 100%;
+  width: 60px;   /* default width */
   height: auto;
-  width: 30px;  /* small screens default */
 }
 
-/* Large screens */
-@media (min-width: 55em) {
+@media (max-width: 55em) {
   .logo_mini {
-    width: 60px;
+    width: 30px !important;
+    height: auto !important;
   }
 }
 
@@ -88,12 +87,18 @@
     transition: none;    /* remove hover animation */
   }
 
-  /* Disable hover effect */
-  .card_wrap:hover {
+@media (max-width: 55em) {
+  .card_wrap {
+    width: 100%;
+    flex: none !important;
+    transition: none !important;
+  }
+
+  .card_wrap:hover,
+  .card_wrap.open {
     flex: none !important;
   }
 }
-
 
 </style>
 
