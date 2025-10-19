@@ -34,11 +34,11 @@
   }
 
   /* Large screen layout */
-@container (width > 55em) {
+@container (width > 60em) {
   /* Expand when hovered OR clicked (open class) */
   .card_wrap:is(:hover, :focus-within, .open) {
     min-height: 15rem;
-    width: 190%;
+    width: 180%;
   }
 
   .layout {
@@ -47,7 +47,7 @@
 }
 
   /* Small screen layout */
-  @container (width < 55em) {
+  @container (width < 60em) {
 
     .layout {
       display: flex;
