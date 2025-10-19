@@ -34,17 +34,48 @@
   }
 
   /* Large screen layout */
-@container (width > 60em) {
-  /* Expand when hovered OR clicked (open class) */
-  .card_wrap:is(:hover, :focus-within, .open) {
-    min-height: 15rem;
-    width: 180%;
+/* Large screens only */
+@container (width > 55em) {
+  .layout {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
   }
 
-  .layout {
-    flex-direction: row;
+  .card_wrap {
+    flex: 1 1 30%;      /* default width */
+    max-width: 32%;      /* prevents overflow */
+    transition: flex-basis 0.3s ease, max-width 0.3s ease;
+  }
+
+  /* expand on hover or open */
+  .card_wrap:is(:hover, :focus-within, .open) {
+    flex-basis: 45%;    /* grows relative to container */
+    max-width: 45%;     /* ensures no full-width */
+  }
+
+  /* Dim other cards when one is open/hovered */
+  .layout:has(.card_wrap.open) .card_wrap:not(.open) .card_content,
+  .layout:has(.card_wrap:hover) .card_wrap:not(:hover) .card_content {
+    opacity: 0.4;
   }
 }
+
+/* Small screens */
+@container (width < 55em) {
+  .layout {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  /* No hover or width changes */
+  .card_wrap {
+    flex: 1 1 100%;
+    max-width: 100%;
+  }
+}
+
 
   /* Small screen layout */
   @container (width < 60em) {
