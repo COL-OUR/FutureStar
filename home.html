@@ -15,28 +15,50 @@
       <link href="https://cdn.prod.website-files.com/68f2b8c96dbaec6591ca9be7/68f3962db2585150b8ee4a54_Asset%208.png" rel="shortcut icon" type="image/x-icon"/>
       <link href="https://cdn.prod.website-files.com/68f2b8c96dbaec6591ca9be7/68f3964b6cb02af453d3ac97_Asset%209.png" rel="apple-touch-icon"/>
       <style>.w-webflow-badge { position: fixed !important; display: None !important; visibility: hidden !important; } </style>
-      <style>
-         @container (width > 55em) {
-            layout:has(.card_wrap:active).card_wrap:not(active) .card_content {opacity:0;}
-            card_wrap:is(:hover, :focus-within) {min-height: 15rem;}
-         card_wrap:(:hover, :focus-within) {width: 190%;}
-         card_wrap:active .mask_wrap {grid-template-rows: 1fr;}
-         mask_wrap {grid-template-rows: 0fr;}
-         layout {flex-direction: row;}
-         @container (width < 55em) {
-            layout:has(.card_wrap:active).card_wrap:not(active) .card_content {opacity:0;}
-            card_wrap:is(:hover, :focus-within) {min-height: 15rem;}
-         card_wrap:(:hover, :focus-within) {width: 140%;}
-         card_wrap:active .mask_wrap {grid-template-rows: 1fr;}
-         mask_wrap {grid-template-rows: 0fr;}
-         layout {
-            dislay: flex;
-            flex-wrap: nowrap;
-            grid-column-gap: 1rem;
-            grid-row-gap: 1rem;
-            flex-direction: column;
-         }
-      </style>
+<style>
+  @container (width > 55em) {
+    .layout:has(.card_wrap:active) .card_wrap:not(:active) .card_content {
+      opacity: 0;
+    }
+    .card_wrap:is(:hover, :focus-within) {
+      min-height: 15rem;
+      width: 190%;
+    }
+    .card_wrap:active .mask_wrap {
+      grid-template-rows: 1fr;
+    }
+    .mask_wrap {
+      grid-template-rows: 0fr;
+    }
+    .layout {
+      flex-direction: row;
+    }
+  }
+
+  @container (width < 55em) {
+    .layout:has(.card_wrap:active) .card_wrap:not(:active) .card_content {
+      opacity: 0;
+    }
+    .card_wrap:is(:hover, :focus-within) {
+      min-height: 15rem;
+      width: 140%;
+    }
+    .card_wrap:active .mask_wrap {
+      grid-template-rows: 1fr;
+    }
+    .mask_wrap {
+      grid-template-rows: 0fr;
+    }
+    .layout {
+      display: flex;
+      flex-wrap: nowrap;
+      grid-column-gap: 1rem;
+      grid-row-gap: 1rem;
+      flex-direction: column;
+    }
+  }
+</style>
+
    </head>
    <body class="body-2">
       <div class="div-block-4">
