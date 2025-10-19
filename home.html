@@ -15,8 +15,89 @@
       <link href="https://cdn.prod.website-files.com/68f2b8c96dbaec6591ca9be7/68f3964b6cb02af453d3ac97_Asset%209.png" rel="apple-touch-icon"/>
       <style>.w-webflow-badge { position: fixed !important; display: None !important; visibility: hidden !important; } </style>
    </head>
-<style> .logo_mini { display: block; max-width: 100%; height: auto; } /* Small screens */ @media (max-width: 55em) { .logo_mini { width: 30px; /* adjust to your preference */ } } /* Large screens */ @media (min-width: 55em) { .logo_mini { width: 60px; } } /* Default card state */ .mask_wrap { grid-template-rows: 0fr; overflow: hidden; transition: grid-template-rows 0.4s ease; } /* When a card is clicked (has .open class) */ .card_wrap.open .mask_wrap { grid-template-rows: 1fr; } /* Dim other cards when one is open */ .layout:has(.card_wrap.open) .card_wrap:not(.open) .card_content { opacity: 0.4; } /* Large screens: 3 cards per row, flexible widths */ @media (min-width: 55em) { .layout { display: flex; gap: 1rem; } .card_wrap { flex: 1; /* All cards share available space equally */ min-width: 0; transition: flex 0.3s ease; } /* Expanded card on hover or open only for large screens */ .card_wrap.open, .card_wrap:hover { flex: 2; } } /* Small screens: stacked */ @media (max-width: 55em) { .layout { display: flex; flex-direction: column; gap: 1rem; } .card_wrap { width: 100%; flex: none; transition: none; } /* Disable hover expansion on small screens */ .card_wrap:hover { flex: none !important; } } </style>
-<script> // Add toggle behavior on click document.addEventListener("DOMContentLoaded", () => { const cards = document.querySelectorAll(".card_wrap"); cards.forEach(card => { card.addEventListener("click", () => { // Optional: close other cards when one opens cards.forEach(c => { if (c !== card) c.classList.remove("open"); }); // Toggle the clicked one card.classList.toggle("open"); }); }); }); </script>
+   
+<style>
+/* ==========================
+   Logo adjustments
+   ========================== */
+.logo_mini {
+  width: 60px; /* default desktop */
+  height: auto;
+}
+
+@media (max-width: 767px) { /* mobile */
+  .logo_mini {
+    width: 40px !important; /* smaller size on mobile */
+  }
+}
+
+/* ==========================
+   Card hover/expand fix
+   ========================== */
+.card_wrap {
+  flex: 1 1 auto;
+  transition: all 0.3s ease;
+}
+
+/* Only expand on desktop hover */
+@media (min-width: 768px) {
+  .card_wrap:hover .card_content {
+    transform: scale(1.05); /* adjust expansion as desired */
+    z-index: 2;
+  }
+}
+
+/* Prevent mask/content from overflowing on small screens */
+@media (max-width: 767px) {
+  .card_wrap .mask_wrap {
+    display: none; /* hide hover info on mobile */
+  }
+}
+
+/* ==========================
+   Close button visibility
+   ========================== */
+.close_button {
+  cursor: pointer;
+  display: block;
+}
+
+/* ==========================
+   Optional: smoother transition for mask
+   ========================== */
+.card_mask_clip {
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+</style>
+   
+<script>
+// Wait until page loads
+document.addEventListener("DOMContentLoaded", function () {
+  
+  // Only apply for mobile (<768px)
+  if (window.innerWidth < 768) {
+    const cards = document.querySelectorAll(".card_wrap");
+
+    cards.forEach(card => {
+      const mask = card.querySelector(".mask_wrap");
+      const closeBtn = card.querySelector(".close_button");
+
+      if (!mask || !closeBtn) return;
+
+      // Click card to show mask
+      card.addEventListener("click", function () {
+        mask.style.display = "block";
+      });
+
+      // Click close button to hide mask
+      closeBtn.addEventListener("click", function (e) {
+        e.stopPropagation(); // prevent triggering card click
+        mask.style.display = "none";
+      });
+    });
+  }
+});
+</script>
    
    <body class="body-2">
       <div class="div-block-4">
