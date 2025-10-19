@@ -17,6 +17,29 @@
    </head>
    
 <style>
+   /* Makes the logo + text stay aligned like before */
+.logo_link {
+  display: flex;                /* keep logo and text on one line */
+  align-items: center;          /* vertically center them */
+  gap: 0.5rem;                  /* space between logo and text */
+  text-decoration: none;        /* remove the underline */
+  color: inherit;               /* keep original text color */
+  justify-content: center;      /* centers it horizontally inside the parent */
+}
+
+/* Ensure the logo keeps its size properly */
+.logo_link img {
+  display: block;
+  height: auto;
+  width: auto;
+}
+
+/* Optional: if the text color changes on hover, keep it consistent */
+.logo_link:hover {
+  text-decoration: none;
+  color: inherit;
+}
+
 /* --------------------------
    Card Layout
 --------------------------- */
