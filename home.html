@@ -34,16 +34,18 @@
   }
 
   /* Large screen layout */
-  @container (width > 55em) {
-    .card_wrap:is(:hover, :focus-within .open) {
-      min-height: 15rem;
-      width: 190%;
-    }
-
-    .layout {
-      flex-direction: row;
-    }
+@container (width > 55em) {
+  .layout {
+    flex-direction: row;
+    flex-wrap: wrap; /* allow multiple cards in the row */
+    gap: 1rem; /* optional: space between cards */
   }
+
+  .card_wrap:is(:hover, :focus-within, .open) {
+    min-height: 15rem;
+    width: 190%; /* you might adjust this if needed */
+  }
+}
 
   /* Small screen layout */
   @container (width < 55em) {
