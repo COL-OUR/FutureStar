@@ -19,10 +19,23 @@
          @container (width > 55em) {
             layout:has(.card_wrap:pressed).card_wrap:not(pressed) .card_content {opacity:0;}
             card_wrap:is(:hover, :focus-within) {min-height: 15rem;}
-         card_wrap:pressed {width: 190%;}
-         card_wrap:is(:hover, :focus-within) .mask_wrap {grid-template-rows: 1fr;}
+         card_wrap:(:hover, :focus-within) {width: 190%;}
+         card_wrap:pressed .mask_wrap {grid-template-rows: 1fr;}
          mask_wrap {grid-template-rows: 0fr;}
          layout {flex-direction: row;}
+         @container (width < 55em) {
+            layout:has(.card_wrap:pressed).card_wrap:not(pressed) .card_content {opacity:0;}
+            card_wrap:is(:hover, :focus-within) {min-height: 15rem;}
+         card_wrap:pressed {width: 190%;}
+         card_wrap:pressed .mask_wrap {grid-template-rows: 1fr;}
+         mask_wrap {grid-template-rows: 0fr;}
+         layout {
+            dislay: flex;
+            flex-wrap: nowrap;
+            grid-column-gap: 1rem;
+            grid-row-gap: 1rem;
+            flex-direction: column;
+         }
       </style>
    </head>
    <body class="body-2">
