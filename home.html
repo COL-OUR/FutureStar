@@ -47,23 +47,22 @@
   }
 }
 
-/* Large screens: 3 cards per row */
+/* Large screens: 3 cards per row, flexible widths */
 @media (min-width: 55em) {
   .layout {
     display: flex;
     gap: 1rem;
-    flex-wrap: nowrap; /* prevent wrapping */
   }
 
   .card_wrap {
-    flex: 1 1 0; /* grow/shrink with others, no height change */
-    min-width: 0; /* allow shrinking */
-    transition: flex-basis 0.3s ease;
+    flex: 1; /* All cards share available space equally */
+    min-width: 0; /* Needed to allow shrinking */
+    transition: flex 0.3s ease;
   }
 
-  /* Expanded card: increase width */
+  /* Expanded card */
   .card_wrap:is(:hover, .open) {
-    flex-basis: 190%; /* only width grows, height unchanged */
+    flex: 2; /* Expanded card takes twice the width */
   }
 }
 
