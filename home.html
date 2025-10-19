@@ -16,19 +16,17 @@
       <style>.w-webflow-badge { position: fixed !important; display: None !important; visibility: hidden !important; } </style>
       
 <style>
+/* --------------------------
+   Logo
+--------------------------- */
+
+/* Default for small/medium screens */
 .logo_mini {
   display: block;
   max-width: 100%;
   height: auto;
+  width: 30px;  /* small screens default */
 }
-
-/* Small screens */
-@media (max-width: 55em) {
-  .logo_mini {
-    width: 30px;  /* adjust to your preference */
-  }
-}
-
 
 /* Large screens */
 @media (min-width: 55em) {
@@ -36,25 +34,28 @@
     width: 60px;
   }
 }
-   
-  /* Default card state */
-  .mask_wrap {
-    grid-template-rows: 0fr;
-    overflow: hidden;
-    transition: grid-template-rows 0.4s ease;
-  }
 
-  /* When a card is clicked (has .open class) */
-  .card_wrap.open .mask_wrap {
-    grid-template-rows: 1fr;
-  }
+/* --------------------------
+   Card Layout
+--------------------------- */
 
-  /* Dim other cards when one is open */
-  .layout:has(.card_wrap.open) .card_wrap:not(.open) .card_content {
-    opacity: 0.4;
-  }
+/* Default card state */
+.mask_wrap {
+  grid-template-rows: 0fr;
+  overflow: hidden;
+  transition: grid-template-rows 0.4s ease;
+}
 
-/* Large screens: 3 cards per row, flexible widths */
+.card_wrap.open .mask_wrap {
+  grid-template-rows: 1fr;
+}
+
+/* Dim other cards when one is open */
+.layout:has(.card_wrap.open) .card_wrap:not(.open) .card_content {
+  opacity: 0.4;
+}
+
+/* ---------- Large screens (>=55em) ---------- */
 @media (min-width: 55em) {
   .layout {
     display: flex;
@@ -62,20 +63,19 @@
   }
 
   .card_wrap {
-    flex: 1; /* All cards share available space equally */
+    flex: 1;       /* equal widths */
     min-width: 0;
     transition: flex 0.3s ease;
   }
 
-  /* Expanded card on hover or open only for large screens */
-  .card_wrap.open,
-  .card_wrap:hover {
-    flex: 2;
+  .card_wrap:hover,
+  .card_wrap.open {
+    flex: 2;       /* expand on hover/open */
   }
 }
 
-/* Small screens: stacked */
-@media (max-width: 55em) {
+/* ---------- Small screens (<55em) ---------- */
+@media (max-width: 54.99em) {
   .layout {
     display: flex;
     flex-direction: column;
@@ -84,16 +84,15 @@
 
   .card_wrap {
     width: 100%;
-    flex: none;
-    transition: none;
+    flex: none;          /* disable flex expansion */
+    transition: none;    /* remove hover animation */
   }
 
-  /* Disable hover expansion on small screens */
+  /* Disable hover effect */
   .card_wrap:hover {
     flex: none !important;
   }
 }
-
 
 
 </style>
