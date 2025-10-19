@@ -17,17 +17,17 @@
       <style>.w-webflow-badge { position: fixed !important; display: None !important; visibility: hidden !important; } </style>
       <style>
          @container (width > 55em) {
-            layout:has(.card_wrap:pressed).card_wrap:not(pressed) .card_content {opacity:0;}
+            layout:has(.card_wrap:active).card_wrap:not(active) .card_content {opacity:0;}
             card_wrap:is(:hover, :focus-within) {min-height: 15rem;}
          card_wrap:(:hover, :focus-within) {width: 190%;}
-         card_wrap:pressed .mask_wrap {grid-template-rows: 1fr;}
+         card_wrap:active .mask_wrap {grid-template-rows: 1fr;}
          mask_wrap {grid-template-rows: 0fr;}
          layout {flex-direction: row;}
          @container (width < 55em) {
-            layout:has(.card_wrap:pressed).card_wrap:not(pressed) .card_content {opacity:0;}
+            layout:has(.card_wrap:active).card_wrap:not(active) .card_content {opacity:0;}
             card_wrap:is(:hover, :focus-within) {min-height: 15rem;}
-         card_wrap:pressed {width: 190%;}
-         card_wrap:pressed .mask_wrap {grid-template-rows: 1fr;}
+         card_wrap:(:hover, :focus-within) {width: 140%;}
+         card_wrap:active .mask_wrap {grid-template-rows: 1fr;}
          mask_wrap {grid-template-rows: 0fr;}
          layout {
             dislay: flex;
