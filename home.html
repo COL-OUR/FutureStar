@@ -112,6 +112,20 @@
   }
 }
 </style>
+   
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const layouts = document.querySelectorAll(".layout");
+
+    layouts.forEach(layout => {
+      const cards = Array.from(layout.children); // get all cards
+      const shuffled = cards.sort(() => Math.random() - 0.5); // shuffle array
+
+      // Remove existing cards and append in shuffled order
+      shuffled.forEach(card => layout.appendChild(card));
+    });
+  });
+</script>
 
 <script>
   // Add toggle behavior on click
