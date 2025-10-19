@@ -43,11 +43,13 @@
 
   .card_wrap {
     flex: 1 1 30%; /* grow, shrink, basis */
-    min-width: 200px; /* optional */
+    min-width: 200px;
+    transition: width 0.3s ease; /* smooth animation */
   }
 
-  .card_wrap.open {
-    width: 100%; /* expand full width when clicked */
+  /* expand on hover, focus-within, or open */
+  .card_wrap:is(:hover, :focus-within, .open) {
+    width: 100%;
   }
 }
 
