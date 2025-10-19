@@ -65,6 +65,12 @@
   .card_wrap {
     width: 100%;
     transition: none;
+    flex: none; /* prevent hover expansion */
+  }
+
+  /* Ensure hovering does nothing */
+  .card_wrap:hover {
+    flex: none;
   }
 }
 
