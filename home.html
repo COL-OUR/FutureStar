@@ -25,15 +25,15 @@
 /* Small screens */
 @media (max-width: 55em) {
   .logo_mini {
-    width: 50px;  /* adjust to your preference */
+    width: 30px;  /* adjust to your preference */
   }
 }
 
 
 /* Large screens */
-@media (min-width: 55.1em) {
+@media (min-width: 55em) {
   .logo_mini {
-    width: 120px;
+    width: 60px;
   }
 }
    
@@ -54,6 +54,26 @@
     opacity: 0.4;
   }
 
+/* Large screens: 3 cards per row, flexible widths */
+@media (min-width: 55em) {
+  .layout {
+    display: flex;
+    gap: 1rem;
+  }
+
+  .card_wrap {
+    flex: 1; /* All cards share available space equally */
+    min-width: 0;
+    transition: flex 0.3s ease;
+  }
+
+  /* Expanded card on hover or open only for large screens */
+  .card_wrap.open,
+  .card_wrap:hover {
+    flex: 2;
+  }
+}
+
 /* Small screens: stacked */
 @media (max-width: 55em) {
   .layout {
@@ -64,34 +84,16 @@
 
   .card_wrap {
     width: 100%;
-    transition: none;
-    flex: none; /* prevent hover expansion */
-  }
-
-  /* Ensure hovering does nothing */
-  .card_wrap:hover {
     flex: none;
+    transition: none;
+  }
+
+  /* Disable hover expansion on small screens */
+  .card_wrap:hover {
+    flex: none !important;
   }
 }
 
-/* Large screens: 3 cards per row, flexible widths */
-@media (min-width: 55.1em) {
-  .layout {
-    display: flex;
-    gap: 1rem;
-  }
-
-  .card_wrap {
-    flex: 1; /* All cards share available space equally */
-    min-width: 0; /* Needed to allow shrinking */
-    transition: flex 0.3s ease;
-  }
-
-  /* Expanded card */
-  .card_wrap:is(:hover, .open) {
-    flex: 2; /* Expanded card takes twice the width */
-  }
-}
 
 
 </style>
