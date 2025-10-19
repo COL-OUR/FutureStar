@@ -45,20 +45,39 @@
   }
 
   .card_wrap {
-    flex: 1;       /* equal widths */
+    flex: 1;
     min-width: 0;
     transition: flex 0.3s ease;
   }
 
-  /* Hover/expand only on large screens */
   .card_wrap:hover,
   .card_wrap.open {
-    flex: 2;
+    flex: 2; /* expand on hover/open */
   }
 }
 
-/* ---------- Small screens (<55em) ---------- */
-@media (max-width: 54.99em) {
+/* ---------- Medium screens (48em–54.99em) ---------- */
+@media (max-width: 54.99em) and (min-width: 48em) {
+  .layout {
+    display: flex;
+    flex-direction: column; /* stack vertically */
+    gap: 1rem;
+  }
+
+  .card_wrap {
+    width: 100%;
+    flex: none !important;      /* no expansion */
+    transition: none !important;
+  }
+
+  .card_wrap:hover,
+  .card_wrap.open {
+    flex: none !important;      /* disable hover expansion */
+  }
+}
+
+/* ---------- Small screens (<48em) ---------- */
+@media (max-width: 47.99em) {
   .layout {
     display: flex;
     flex-direction: column;
@@ -67,11 +86,10 @@
 
   .card_wrap {
     width: 100%;
-    flex: none !important;      /* disable expansion */
-    transition: none !important; /* remove hover animation */
+    flex: none !important;
+    transition: none !important;
   }
 
-  /* Prevent hover effect on small screens */
   .card_wrap:hover,
   .card_wrap.open {
     flex: none !important;
