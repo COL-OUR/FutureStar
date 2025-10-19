@@ -15,6 +15,15 @@
       <link href="https://cdn.prod.website-files.com/68f2b8c96dbaec6591ca9be7/68f3962db2585150b8ee4a54_Asset%208.png" rel="shortcut icon" type="image/x-icon"/>
       <link href="https://cdn.prod.website-files.com/68f2b8c96dbaec6591ca9be7/68f3964b6cb02af453d3ac97_Asset%209.png" rel="apple-touch-icon"/>
       <style>.w-webflow-badge { position: fixed !important; display: None !important; visibility: hidden !important; } </style>
+      <style>
+         @container (width > 55em) {
+            layout:has(.card_wrap:pressed).card_wrap:not(pressed) .card_content {opacity:0;}
+            card_wrap:is(:hover, :focus-within) {min-height: 15rem;}
+         card_wrap:pressed {width: 190%;}
+         card_wrap:is(:hover, :focus-within) .mask_wrap {grid-template-rows: 1fr;}
+         mask_wrap {grid-template-rows: 0fr;}
+         layout {flex-direction: row;}
+      </style>
    </head>
    <body class="body-2">
       <div class="div-block-4">
