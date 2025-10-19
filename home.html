@@ -35,31 +35,14 @@
 
   /* Large screen layout */
 @container (width > 55em) {
+  /* Expand when hovered OR clicked (open class) */
+  .card_wrap:is(:hover, :focus-within, .open) {
+    min-height: 15rem;
+    width: 190%;
+  }
+
   .layout {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
-  }
-
-  .card_wrap {
-    flex: 1 1 30%; /* initial width */
-    max-width: 32%; /* prevents overflow */
-    min-width: 200px;
-    transition: flex-basis 0.3s ease, max-width 0.3s ease;
-    cursor: pointer;
-  }
-
-  /* expand on hover or open */
-  .card_wrap:hover,
-  .card_wrap.open {
-    flex: 1 1 45%; /* expands but stays relative to container */
-    max-width: 45%; /* ensure it doesn’t take 100% */
-  }
-
-  /* dim other cards when one is open or hovered */
-  .layout:has(.card_wrap.open) .card_wrap:not(.open) .card_content,
-  .layout:has(.card_wrap:hover) .card_wrap:not(:hover) .card_content {
-    opacity: 0.4;
+    flex-direction: row;
   }
 }
 
