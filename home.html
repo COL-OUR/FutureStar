@@ -83,7 +83,34 @@
     width: 100% !important;
   }
 }
+/* ---------- Menu Text Centering ---------- */
+.menu_open {
+  display: flex;
+  flex-direction: column;  /* stack items vertically */
+  align-items: center;     /* center horizontally */
+  justify-content: center; /* center vertically (optional) */
+  text-align: center;      /* center text inside each block */
+  gap: 1rem;               /* spacing between items */
+  padding: 0;              /* remove extra padding */
+  margin: 0;               /* remove extra margin */
+}
 
+/* Reset text blocks inside the menu */
+.menu_open .text-block-20,
+.menu_open .text-block-20-copy {
+  margin: 0;
+  padding: 0;
+  text-align: center;      /* ensure text is centered */
+  width: 100%;             /* optional: make blocks full width */
+}
+
+/* Optional: make sure it stays centered on small screens */
+@media (max-width: 54.99em) {
+  .menu_open {
+    align-items: center;
+    justify-content: center;
+  }
+}
 </style>
 
 <script>
