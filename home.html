@@ -7,121 +7,17 @@
       <meta content="Home" property="twitter:title"/>
       <meta content="width=device-width, initial-scale=1" name="viewport"/>
       <meta content="Webflow" name="generator"/>
-      <link href="https://cdn.prod.website-files.com/68f2b8c96dbaec6591ca9be7/css/cas-fc28b0.webflow.shared.59bab2e89.css" rel="stylesheet" type="text/css"/>
+      <link href="https://cdn.prod.website-files.com/68f2b8c96dbaec6591ca9be7/css/cas-fc28b0.webflow.shared.f468542c8.css" rel="stylesheet" type="text/css"/>
       <link href="https://fonts.googleapis.com" rel="preconnect"/>
       <link crossorigin="anonymous" href="https://fonts.gstatic.com" rel="preconnect"/>
       <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js" type="text/javascript"></script><script type="text/javascript">WebFont.load({  google: {    families: ["Lato:100,100italic,300,300italic,400,400italic,700,700italic,900,900italic","Lexend:100,200,300,regular,500,600,700,800,900","Inter:100,200,300,regular,500,600,700,800,900,100italic,200italic,300italic,italic,500italic,600italic,700italic,800italic,900italic"]  }});</script><script type="text/javascript">!function(o,c){var n=c.documentElement,t=" w-mod-";n.className+=t+"js",("ontouchstart"in o||o.DocumentTouch&&c instanceof DocumentTouch)&&(n.className+=t+"touch")}(window,document);</script>
       <link href="https://cdn.prod.website-files.com/68f2b8c96dbaec6591ca9be7/68f3962db2585150b8ee4a54_Asset%208.png" rel="shortcut icon" type="image/x-icon"/>
       <link href="https://cdn.prod.website-files.com/68f2b8c96dbaec6591ca9be7/68f3964b6cb02af453d3ac97_Asset%209.png" rel="apple-touch-icon"/>
       <style>.w-webflow-badge { position: fixed !important; display: None !important; visibility: hidden !important; } </style>
-      
-<style>
-/* --------------------------
-   Logo
---------------------------- */
-
-/* Default for small/medium screens */
-.logo_mini {
-  display: block;
-  width: 60px;   /* default width */
-  height: auto;
-}
-
-@media (max-width: 55em) {
-  .logo_mini {
-    width: 30px !important;
-    height: auto !important;
-  }
-}
-
-/* --------------------------
-   Card Layout
---------------------------- */
-
-/* Default card state */
-.mask_wrap {
-  grid-template-rows: 0fr;
-  overflow: hidden;
-  transition: grid-template-rows 0.4s ease;
-}
-
-.card_wrap.open .mask_wrap {
-  grid-template-rows: 1fr;
-}
-
-/* Dim other cards when one is open */
-.layout:has(.card_wrap.open) .card_wrap:not(.open) .card_content {
-  opacity: 0.4;
-}
-
-/* ---------- Large screens (>=55em) ---------- */
-@media (min-width: 55em) {
-  .layout {
-    display: flex;
-    gap: 1rem;
-  }
-
-  .card_wrap {
-    flex: 1;       /* equal widths */
-    min-width: 0;
-    transition: flex 0.3s ease;
-  }
-
-  .card_wrap:hover,
-  .card_wrap.open {
-    flex: 2;       /* expand on hover/open */
-  }
-}
-
-/* ---------- Small screens (<55em) ---------- */
-@media (max-width: 54.99em) {
-  .layout {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-  }
-
-  .card_wrap {
-    width: 100%;
-    flex: none;          /* disable flex expansion */
-    transition: none;    /* remove hover animation */
-  }
-
-@media (max-width: 55em) {
-  .card_wrap {
-    width: 100%;
-    flex: none !important;
-    transition: none !important;
-  }
-
-  .card_wrap:hover,
-  .card_wrap.open {
-    flex: none !important;
-  }
-}
-
-</style>
-
-<script>
-  // Add toggle behavior on click
-  document.addEventListener("DOMContentLoaded", () => {
-    const cards = document.querySelectorAll(".card_wrap");
-
-    cards.forEach(card => {
-      card.addEventListener("click", () => {
-        // Optional: close other cards when one opens
-        cards.forEach(c => {
-          if (c !== card) c.classList.remove("open");
-        });
-
-        // Toggle the clicked one
-        card.classList.toggle("open");
-      });
-    });
-  });
-</script>
-
    </head>
+<style> .logo_mini { display: block; max-width: 100%; height: auto; } /* Small screens */ @media (max-width: 55em) { .logo_mini { width: 30px; /* adjust to your preference */ } } /* Large screens */ @media (min-width: 55em) { .logo_mini { width: 60px; } } /* Default card state */ .mask_wrap { grid-template-rows: 0fr; overflow: hidden; transition: grid-template-rows 0.4s ease; } /* When a card is clicked (has .open class) */ .card_wrap.open .mask_wrap { grid-template-rows: 1fr; } /* Dim other cards when one is open */ .layout:has(.card_wrap.open) .card_wrap:not(.open) .card_content { opacity: 0.4; } /* Large screens: 3 cards per row, flexible widths */ @media (min-width: 55em) { .layout { display: flex; gap: 1rem; } .card_wrap { flex: 1; /* All cards share available space equally */ min-width: 0; transition: flex 0.3s ease; } /* Expanded card on hover or open only for large screens */ .card_wrap.open, .card_wrap:hover { flex: 2; } } /* Small screens: stacked */ @media (max-width: 55em) { .layout { display: flex; flex-direction: column; gap: 1rem; } .card_wrap { width: 100%; flex: none; transition: none; } /* Disable hover expansion on small screens */ .card_wrap:hover { flex: none !important; } } </style>
+<script> // Add toggle behavior on click document.addEventListener("DOMContentLoaded", () => { const cards = document.querySelectorAll(".card_wrap"); cards.forEach(card => { card.addEventListener("click", () => { // Optional: close other cards when one opens cards.forEach(c => { if (c !== card) c.classList.remove("open"); }); // Toggle the clicked one card.classList.toggle("open"); }); }); }); </script>
+   
    <body class="body-2">
       <div class="div-block-4">
          <div class="menu_open" style="display:none">
@@ -133,7 +29,7 @@
             </svg>
          </div>
          <div class="div-block-5">
-            <img alt="" class="logo_mini" id="w-node-e4a2441c-1795-8312-f678-b533d58d3598-6517088a" loading="lazy" height="auto" src="https://cdn.prod.website-files.com/68f2b8c96dbaec6591ca9be7/68f396aedf65e4092addaedc_FutureStar_Purple.svg" width="auto"/>
+            <img alt="" class="logo_mini" height="Auto" id="w-node-e4a2441c-1795-8312-f678-b533d58d3598-6517088a" loading="lazy" src="https://cdn.prod.website-files.com/68f2b8c96dbaec6591ca9be7/68f396aedf65e4092addaedc_FutureStar_Purple.svg" width="Auto"/>
             <div class="futurestar" id="w-node-_6538fcf8-f729-d6c8-df9c-eed554fa10c1-6517088a">FutureStar</div>
             <svg app="ikonik" class="menu_icon" data-w-id="58a356e2-4fa3-bc4e-f7e2-bda74b48ab24" fill="none" height="64" viewbox="0 0 24 24" width="64" xmlns="http://www.w3.org/2000/svg">
                <path app="ikonik" class="menu_path_3" clip-rule="evenodd" d="M19.75 17C19.75 16.5858 19.4142 16.25 19 16.25H5C4.58579 16.25 4.25 16.5858 4.25 17C4.25 17.4142 4.58579 17.75 5 17.75H19C19.4142 17.75 19.75 17.4142 19.75 17Z" fill="currentColor" fill-rule="evenodd"></path>
@@ -201,7 +97,7 @@
                      </div>
                   </div>
                </div>
-                <div class="layout" role="list">
+               <div class="layout" role="list">
                   <div class="card_wrap" role="listitem">
                      <div class="card_bg"></div>
                      <div class="card_content">
@@ -220,12 +116,12 @@
                         </div>
                      </div>
                   </div>
-         <div class="card_wrap" role="listitem">
+                  <div class="card_wrap" role="listitem">
                      <div class="card_bg"></div>
                      <div class="card_content">
                         <div class="profile">
                            <div class="name">This is a boring name</div>
-                           <div class="job">This is their boring job title</div>
+                           <div class="job">This is their boring job</div>
                         </div>
                         <img alt="" class="pfp" loading="lazy" src="https://cdn.prod.website-files.com/68f2b8c96dbaec6591ca9be7/68f47e738abeb45efd7e2747_pfp_placeholder.png"/>
                         <div class="mask_wrap">
@@ -241,7 +137,6 @@
                </div>
             </div>
          </div>
-            
       </section>
       <script crossorigin="anonymous" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" src="https://d3e54v103j8qbb.cloudfront.net/js/jquery-3.5.1.min.dc5e7f18c8.js?site=68f2b8c96dbaec6591ca9be7" type="text/javascript"></script><script src="https://cdn.prod.website-files.com/68f2b8c96dbaec6591ca9be7/js/webflow.schunk.36b8fb49256177c8.js" type="text/javascript"></script><script src="https://cdn.prod.website-files.com/68f2b8c96dbaec6591ca9be7/js/webflow.schunk.50d850aa4962b686.js" type="text/javascript"></script><script src="https://cdn.prod.website-files.com/68f2b8c96dbaec6591ca9be7/js/webflow.3abe8662.1f9af8b936598cb6.js" type="text/javascript"></script>
    </body>
