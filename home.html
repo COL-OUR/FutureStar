@@ -33,7 +33,7 @@
     opacity: 0.4;
   }
 
- /* Small screens: stacked */
+/* Small screens: stacked */
 @media (max-width: 54.99em) {
   .layout {
     display: flex;
@@ -47,26 +47,23 @@
   }
 }
 
-/* Large screens: max 3 cards per row */
+/* Large screens: 3 cards per row */
 @media (min-width: 55em) {
   .layout {
     display: flex;
-    flex-wrap: wrap;               /* allow multiple rows */
-    justify-content: center;       /* center rows with <3 cards */
-    gap: 1rem;                     /* spacing between cards */
-    max-width: calc(3 * 15rem + 2rem); /* limit max 3 cards per row */
-    margin: 0 auto;
+    gap: 1rem;
+    flex-wrap: nowrap; /* prevent wrapping */
   }
 
   .card_wrap {
-    flex: 1 1 15rem;              /* base width ~15rem */
-    transition: width 0.3s ease;
-    min-width: 0;                 /* allow shrinking */
+    flex: 1 1 0; /* grow/shrink with others, no height change */
+    min-width: 0; /* allow shrinking */
+    transition: flex-basis 0.3s ease;
   }
 
-  /* When hovered or opened, expand width, squeeze siblings */
+  /* Expanded card: increase width */
   .card_wrap:is(:hover, .open) {
-    width: 190%;                   /* expands width */
+    flex-basis: 190%; /* only width grows, height unchanged */
   }
 }
 
