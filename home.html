@@ -33,7 +33,7 @@
     opacity: 0.4;
   }
 
-  /* Small screens: stacked */
+ /* Small screens: stacked */
 @media (max-width: 54.99em) {
   .layout {
     display: flex;
@@ -47,26 +47,25 @@
   }
 }
 
-/* Large screens: 3 cards per row, flexible widths */
+/* Large screens: 3 cards per row */
 @media (min-width: 55em) {
   .layout {
     display: flex;
     gap: 1rem;
+    flex-wrap: nowrap; /* prevent wrapping */
   }
 
   .card_wrap {
-    flex: 1; /* All cards share available space equally */
-    min-width: 0; /* Needed to allow shrinking */
-    transition: flex 0.3s ease;
+    flex: 1 1 0; /* grow/shrink with others, no height change */
+    min-width: 0; /* allow shrinking */
+    transition: flex-basis 0.3s ease;
   }
 
-  /* Expanded card */
+  /* Expanded card: increase width */
   .card_wrap:is(:hover, .open) {
-    flex: 2; /* Expanded card takes twice the width */
+    flex-basis: 190%; /* only width grows, height unchanged */
   }
 }
-
-   
 </style>
 
 <script>
