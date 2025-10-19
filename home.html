@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<!-- This site was created in Webflow. https://webflow.com --><!-- Last Published: Sun Oct 19 2025 06:04:58 GMT+0000 (Coordinated Universal Time) -->
 <html data-wf-domain="cas-fc28b0.webflow.io" data-wf-page="68f2c066b1906bb86517088a" data-wf-site="68f2b8c96dbaec6591ca9be7" data-wf-status="1">
    <head>
       <meta charset="utf-8"/>
@@ -15,40 +14,44 @@
       <link href="https://cdn.prod.website-files.com/68f2b8c96dbaec6591ca9be7/68f3962db2585150b8ee4a54_Asset%208.png" rel="shortcut icon" type="image/x-icon"/>
       <link href="https://cdn.prod.website-files.com/68f2b8c96dbaec6591ca9be7/68f3964b6cb02af453d3ac97_Asset%209.png" rel="apple-touch-icon"/>
       <style>.w-webflow-badge { position: fixed !important; display: None !important; visibility: hidden !important; } </style>
+      
 <style>
+  /* Default card state */
+  .mask_wrap {
+    grid-template-rows: 0fr;
+    overflow: hidden;
+    transition: grid-template-rows 0.4s ease;
+  }
+
+  /* When a card is clicked (has .open class) */
+  .card_wrap.open .mask_wrap {
+    grid-template-rows: 1fr;
+  }
+
+  /* Dim other cards when one is open */
+  .layout:has(.card_wrap.open) .card_wrap:not(.open) .card_content {
+    opacity: 0.4;
+  }
+
+  /* Large screen layout */
   @container (width > 55em) {
-    .layout:has(.card_wrap:active) .card_wrap:not(:active) .card_content {
-      opacity: 0;
-    }
     .card_wrap:is(:hover, :focus-within) {
       min-height: 15rem;
       width: 190%;
     }
-    .card_wrap:active .mask_wrap {
-      grid-template-rows: 1fr;
-    }
-    .mask_wrap {
-      grid-template-rows: 0fr;
-    }
+
     .layout {
       flex-direction: row;
     }
   }
 
+  /* Small screen layout */
   @container (width < 55em) {
-    .layout:has(.card_wrap:active) .card_wrap:not(:active) .card_content {
-      opacity: 0;
-    }
     .card_wrap:is(:hover, :focus-within) {
       min-height: 15rem;
       width: 140%;
     }
-    .card_wrap:active .mask_wrap {
-      grid-template-rows: 1fr;
-    }
-    .mask_wrap {
-      grid-template-rows: 0fr;
-    }
+
     .layout {
       display: flex;
       flex-wrap: nowrap;
@@ -58,6 +61,25 @@
     }
   }
 </style>
+
+<script>
+  // Add toggle behavior on click
+  document.addEventListener("DOMContentLoaded", () => {
+    const cards = document.querySelectorAll(".card_wrap");
+
+    cards.forEach(card => {
+      card.addEventListener("click", () => {
+        // Optional: close other cards when one opens
+        cards.forEach(c => {
+          if (c !== card) c.classList.remove("open");
+        });
+
+        // Toggle the clicked one
+        card.classList.toggle("open");
+      });
+    });
+  });
+</script>
 
    </head>
    <body class="body-2">
