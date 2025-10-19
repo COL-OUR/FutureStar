@@ -36,20 +36,22 @@
   /* Large screen layout */
 @container (width > 55em) {
   .layout {
-    flex-direction: row;
+    display: flex;
     flex-wrap: wrap;
     gap: 1rem;
   }
 
   .card_wrap {
-    flex: 1 1 30%; /* grow, shrink, basis */
+    flex: 1 1 30%; /* start at 30% */
     min-width: 200px;
-    transition: width 0.3s ease; /* smooth animation */
+    transition: flex-basis 0.3s ease, width 0.3s ease;
+    cursor: pointer;
   }
 
-  /* expand on hover, focus-within, or open */
-  .card_wrap:is(:hover, :focus-within, .open) {
-    width: 100%;
+  /* expand on hover or open */
+  .card_wrap:hover,
+  .card_wrap.open {
+    flex: 1 1 100%; /* grow to full width */
   }
 }
 
