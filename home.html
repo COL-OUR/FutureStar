@@ -45,39 +45,19 @@
   }
 
   .card_wrap {
-    flex: 1;
+    flex: 1;       /* equal widths */
     min-width: 0;
     transition: flex 0.3s ease;
   }
 
   .card_wrap:hover,
   .card_wrap.open {
-    flex: 2; /* expand on hover/open */
+    flex: 2;       /* expand on hover/open */
   }
 }
 
-/* ---------- Medium screens (48em–54.99em) ---------- */
-@media (max-width: 54.99em) and (min-width: 48em) {
-  .layout {
-    display: flex;
-    flex-direction: column; /* stack vertically */
-    gap: 1rem;
-  }
-
-  .card_wrap {
-    width: 100%;
-    flex: none !important;      /* no expansion */
-    transition: none !important;
-  }
-
-  .card_wrap:hover,
-  .card_wrap.open {
-    flex: none !important;      /* disable hover expansion */
-  }
-}
-
-/* ---------- Small screens (<48em) ---------- */
-@media (max-width: 47.99em) {
+/* ---------- Small and medium screens (<55em) ---------- */
+@media (max-width: 54.99em) {
   .layout {
     display: flex;
     flex-direction: column;
@@ -92,7 +72,7 @@
 
   .card_wrap:hover,
   .card_wrap.open {
-    flex: none !important;
+    flex: none !important;    /* completely disable hover */
   }
 }
 
