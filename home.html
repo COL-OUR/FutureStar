@@ -50,9 +50,10 @@
     transition: flex 0.3s ease;
   }
 
+  /* Hover/expand only on large screens */
   .card_wrap:hover,
   .card_wrap.open {
-    flex: 2;       /* expand on hover/open */
+    flex: 2;
   }
 }
 
@@ -66,17 +67,11 @@
 
   .card_wrap {
     width: 100%;
-    flex: none;          /* disable flex expansion */
-    transition: none;    /* remove hover animation */
+    flex: none !important;      /* disable expansion */
+    transition: none !important; /* remove hover animation */
   }
 
-@media (max-width: 55em) {
-  .card_wrap {
-    width: 100%;
-    flex: none !important;
-    transition: none !important;
-  }
-
+  /* Prevent hover effect on small screens */
   .card_wrap:hover,
   .card_wrap.open {
     flex: none !important;
