@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign Up</title>
+  <style>
+    /* Page background */
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f8f8f8;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    /* Centered box */
+    .signup-box {
+      background-color: #f9f7ff;
+      border-radius: 1rem;
+      padding: 2rem;
+      width: 100%;
+      max-width: 400px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+
+    /* Input fields */
+    .signup-box input {
+      width: 100%;
+      padding: 0.8rem;
+      margin: 0.6rem 0;
+      border: 1px solid #ccc;
+      border-radius: 0.5rem;
+      font-size: 1rem;
+    }
+
+    /* Sign-in link text */
+    .signin-link {
+      display: block;
+      margin: 1rem 0;
+      color: #4000f1;
+      text-decoration: none;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    /* Button */
+    .signup-box button {
+      width: 100%;
+      padding: 0.8rem;
+      background-color: #4000f1;
+      border: none;
+      border-radius: 0.5rem;
+      color: white;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: opacity 0.3s;
+    }
+
+    .signup-box button:hover {
+      opacity: 0.7;
+    }
+  </style>
+</head>
+<body>
+  <div class="signup-box">
+    <h2>Create Account</h2>
+    <input type="email" id="email" placeholder="Email">
+    <input type="password" id="password" placeholder="Password">
+    
+    <a class="signin-link" href="signin.html">Sign In</a>
+    
+    <button id="signupBtn">Sign Up</button>
+  </div>
+
+  <script>
+    // Placeholder for Firebase signup logic
+    document.getElementById('signupBtn').addEventListener('click', function() {
+      const email = document.getElementById('email').value;
+      const password = document.getElementById('password').value;
+
+      // Here you can add Firebase code to create user
+      // Example: auth.createUserWithEmailAndPassword(email, password)
+      console.log("Sign Up clicked with email:", email);
+
+      // Redirect to home page after successful signup
+      window.location.href = 'home.html'; // Change to your home page
+    });
+  </script>
+</body>
+</html>
