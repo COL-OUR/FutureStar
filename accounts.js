@@ -19,3 +19,32 @@
   // Initialize Firebase
   const app = initializeApp(firebaseConfig);
   const analytics = getAnalytics(app);
+
+
+// Import the functions you need from the Firebase SDK
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-app.js";
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-auth.js";
+
+
+// Get elements
+const signupBtn = document.getElementById("signupBtn");
+const emailInput = document.getElementById("email");
+const passwordInput = document.getElementById("password");
+
+// Signup event
+signupBtn.addEventListener("click", async () => {
+    const email = emailInput.value;
+    const password = passwordInput.value;
+
+    try {
+        const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+        const user = userCredential.user;
+        console.log("User signed up:", user.email);
+
+        // Redirect to home page
+        window.location.href = "Home/home.html"; 
+    } catch (error) {
+        console.error(error.code, error.message);
+        alert(error.message); // Show error to user
+    }
+});
