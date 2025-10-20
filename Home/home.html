@@ -38,6 +38,16 @@
 .layout:has(.card_wrap.open) .card_wrap:not(.open) .card_content {
   opacity: 0.4;
 }
+   /* ----- meduium screens -----*/
+@media (min-width: 48em) and (max-width: 54.99em) {
+  /* Fix your card styles here */
+  .card {
+    /* example fixes */
+    width: 45%;       /* adjust width */
+    margin: 1rem;     /* adjust spacing */
+    flex-direction: column; /* if using flexbox and it needs to stack */
+  }
+}
 
 /* ---------- Large screens (>=55em) ---------- */
 @media (min-width: 55em) {
