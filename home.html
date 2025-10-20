@@ -4,24 +4,54 @@
   <style>
 /* --- Fix menu icon alignment --- */
 .menu_icon {
-  margin-right: 1rem; /* pushes it slightly right */
+  margin-right: 2rem; /* move slightly right */
   cursor: pointer;
+  flex-shrink: 0;
 }
 
-/* --- Smooth hover transitions for cards --- */
+/* --- MENU LAYOUT STYLING --- */
+.menu_open {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(255, 255, 255, 0.98);
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start; /* items start from top */
+  text-align: center;
+  gap: 2rem; /* spacing between menu items */
+  padding-top: 3rem; /* space from top for the first item */
+  z-index: 1000;
+}
+
+/* --- MENU TEXT SPACING --- */
+.menu_open .text-block-20,
+.menu_open .text-block-20-copy {
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  font-size: 1.3rem;
+}
+
+/* --- Smooth Hover Transitions for Cards --- */
 @media (min-width: 55em) {
   .card_wrap {
     flex: 1;
     min-width: 0;
-    transition: all 0.4s ease; /* smoother than flex-only */
+    transition: flex 0.5s cubic-bezier(0.25, 1, 0.5, 1), 
+                transform 0.5s cubic-bezier(0.25, 1, 0.5, 1); /* ease-out feel */
   }
 
   .card_wrap:hover,
   .card_wrap.open {
     flex: 2;
-    transform: scale(1.02); /* subtle smooth zoom */
+    transform: scale(1.03); /* subtle, smooth zoom */
   }
 }
+
     
   .logo_link {
   display: flex;              /* keeps logo and text side by side */
@@ -103,44 +133,6 @@
     flex: none !important;
     width: 100% !important;
   }
-}
-/* ---------- Menu Text Centering ---------- */
-.menu_open {
-  display: flex;
-  flex-direction: column;  /* stack items vertically */
-  align-items: center;     /* center horizontally */
-  justify-content: center; /* center vertically (optional) */
-  text-align: center;      /* center text inside each block */
-  gap: 1rem;               /* spacing between items */
-  padding: 0;              /* remove extra padding */
-  margin: 0;               /* remove extra margin */
-}
-
-/* Reset text blocks inside the menu */
-.menu_open .text-block-20,
-.menu_open .text-block-20-copy {
-  margin: 0;
-  padding: 0;
-  text-align: center;      /* ensure text is centered */
-  width: 100%;             /* optional: make blocks full width */
-}
-
-/* Optional: make sure it stays centered on small screens */
-@media (max-width: 54.99em) {
-  .menu_open {
-    align-items: center;
-    justify-content: center;
-  }
-}
-
-   .menu_open .text-block-20:first-child,
-.menu_open .text-block-20-copy:first-child {
-  margin-top: 3rem; /* space from top of the menu */
-}
-
-   .menu_open .text-block-20,
-.menu_open .text-block-20-copy {
-  margin-bottom: 2rem; /* space between each menu item */
 }
 
 </style>
@@ -321,15 +313,28 @@
       </section>
       <script src="jquery.js" type="text/javascript"  ></script><script src="FutureStar_schunk_JS.js" type="text/javascript"></script><script src="FutureStar_schunkJS_1.js" type="text/javascript"></script><script src="FutureStar_JS_1.js" type="text/javascript"></script>
  
-     <script>
+<script>
 document.addEventListener("DOMContentLoaded", () => {
   const menuBtn = document.querySelector(".menu_icon");
   const menu = document.querySelector(".menu_open");
+  const closeBtn = document.querySelector(".ikonik-6k9ok");
 
   if (menuBtn && menu) {
     menuBtn.addEventListener("click", () => {
-      const isOpen = menu.style.display === "flex";
-      menu.style.display = isOpen ? "none" : "flex";
+      menu.style.display = "flex";
+      menu.style.opacity = "0";
+      menu.style.transition = "opacity 0.3s ease";
+      requestAnimationFrame(() => (menu.style.opacity = "1"));
+    });
+  }
+
+  if (closeBtn && menu) {
+    closeBtn.addEventListener("click", () => {
+      menu.style.opacity = "0";
+      menu.addEventListener("transitionend", function hideMenu() {
+        menu.style.display = "none";
+        menu.removeEventListener("transitionend", hideMenu);
+      });
     });
   }
 });
