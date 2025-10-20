@@ -2,7 +2,27 @@
 <html data-wf-page="68f2c066b1906bb86517088a" data-wf-site="68f2b8c96dbaec6591ca9be7" data-wf-status="1">
 
   <style>
-   
+/* --- Fix menu icon alignment --- */
+.menu_icon {
+  margin-right: 1rem; /* pushes it slightly right */
+  cursor: pointer;
+}
+
+/* --- Smooth hover transitions for cards --- */
+@media (min-width: 55em) {
+  .card_wrap {
+    flex: 1;
+    min-width: 0;
+    transition: all 0.4s ease; /* smoother than flex-only */
+  }
+
+  .card_wrap:hover,
+  .card_wrap.open {
+    flex: 2;
+    transform: scale(1.02); /* subtle smooth zoom */
+  }
+}
+    
   .logo_link {
   display: flex;              /* keeps logo and text side by side */
   align-items: center;        /* vertically centers them */
@@ -300,5 +320,20 @@
          </div>
       </section>
       <script src="jquery.js" type="text/javascript"  ></script><script src="FutureStar_schunk_JS.js" type="text/javascript"></script><script src="FutureStar_schunkJS_1.js" type="text/javascript"></script><script src="FutureStar_JS_1.js" type="text/javascript"></script>
+ 
+     <script>
+document.addEventListener("DOMContentLoaded", () => {
+  const menuBtn = document.querySelector(".menu_icon");
+  const menu = document.querySelector(".menu_open");
+
+  if (menuBtn && menu) {
+    menuBtn.addEventListener("click", () => {
+      const isOpen = menu.style.display === "flex";
+      menu.style.display = isOpen ? "none" : "flex";
+    });
+  }
+});
+</script>
+
    </body>
 </html>
