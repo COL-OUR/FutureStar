@@ -58,7 +58,7 @@ if (signupBtn) {
       const userCredential = await createUserWithEmailAndPassword(auth, email, password);
       const user = userCredential.user;
       console.log("User signed up:", user.email);
-      window.location.href = "home.html";
+      window.location.href = "Home/home.html";
     } catch (error) {
       console.error(error.code, error.message);
       alert(error.message);
