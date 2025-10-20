@@ -6,7 +6,7 @@
 
   // Your web app's Firebase configuration
   // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-  const firebaseConfig = {
+   firebaseConfig = {
     apiKey: "AIzaSyDN6J8OMON2LWsQy52yUDISQehDMTsk1bw",
     authDomain: "futurestar-08.firebaseapp.com",
     projectId: "futurestar-08",
@@ -17,8 +17,8 @@
   };
 
   // Initialize Firebase
-  const app = initializeApp(firebaseConfig);
-  const analytics = getAnalytics(app);
+   app = initializeApp(firebaseConfig);
+   analytics = getAnalytics(app);
 
 
 // Import the functions you need from the Firebase SDK
@@ -27,18 +27,18 @@ import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } f
 
 
 // Get elements
-const signupBtn = document.getElementById("signupBtn");
-const emailInput = document.getElementById("email");
-const passwordInput = document.getElementById("password");
+ signupBtn = document.getElementById("signupBtn");
+ emailInput = document.getElementById("email");
+ passwordInput = document.getElementById("password");
 
 // Signup event
 signupBtn.addEventListener("click", async () => {
-    const email = emailInput.value;
-    const password = passwordInput.value;
+     email = emailInput.value;
+     password = passwordInput.value;
 
     try {
-        const userCredential = await createUserWithEmailAndPassword(auth, email, password);
-        const user = userCredential.user;
+         userCredential = await createUserWithEmailAndPassword(auth, email, password);
+         user = userCredential.user;
         console.log("User signed up:", user.email);
 
         // Redirect to home page
