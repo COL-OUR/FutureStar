@@ -53,8 +53,8 @@
   }
 }
 
-/* ---------- Small and medium screens (<=75em) ---------- */
-@media (max-width: 75em) {
+/* ---------- Small and medium screens (<55em) ---------- */
+@media (max-width: 54.99em) {
   .layout {
     display: flex;
     flex-direction: column;
@@ -69,7 +69,7 @@
 
   .card_wrap:hover,
   .card_wrap.open {
-    flex: none !important;
+    flex: none !important;    /* completely disable hover */
   }
 }
    
