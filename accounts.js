@@ -42,7 +42,7 @@ signupBtn.addEventListener("click", async () => {
         console.log("User signed up:", user.email);
 
         // Redirect to home page
-        window.location.href = "Home/home.html"; 
+        window.location.href = "Home/home.html";  
     } catch (error) {
         console.error(error.code, error.message);
         alert(error.message); // Show error to user
