@@ -20,31 +20,51 @@
    app = initializeApp(firebaseConfig);
    analytics = getAnalytics(app);
 
-
-// Import the functions you need from the Firebase SDK
+// Import Firebase modules
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-app.js";
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-auth.js";
+import { 
+  getAuth, 
+  createUserWithEmailAndPassword, 
+  signInWithEmailAndPassword, 
+  onAuthStateChanged, 
+  signOut 
+} from "https://www.gstatic.com/firebasejs/10.6.0/firebase-auth.js";
 
 
-// Get elements
- signupBtn = document.getElementById("signupBtn");
- emailInput = document.getElementById("email");
- passwordInput = document.getElementById("password");
 
-// Signup event
-signupBtn.addEventListener("click", async () => {
-     email = emailInput.value;
-     password = passwordInput.value;
+// Get page elements if they exist
+const signupBtn = document.getElementById("signupBtn");
+const signinBtn = document.getElementById("signinBtn");
+const emailInput = document.getElementById("email");
+const passwordInput = document.getElementById("password");
+
+// 🟢 Auto-login: redirect if user is already signed in
+onAuthStateChanged(auth, (user) => {
+  if (user) {
+    console.log("User already signed in:", user.email);
+    if (!window.location.pathname.includes("home.html")) {
+      window.location.href = "home.html";
+    }
+  }
+});
+
+// 🟣 Sign Up button
+if (signupBtn) {
+  signupBtn.addEventListener("click", async () => {
+    const email = emailInput.value;
+    const password = passwordInput.value;
 
     try {
-         userCredential = await createUserWithEmailAndPassword(auth, email, password);
-         user = userCredential.user;
-        console.log("User signed up:", user.email);
-
-        // Redirect to home page
-        window.location.href = "Home/home.html";  
+      const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+      const user = userCredential.user;
+      console.log("User signed up:", user.email);
+      window.location.href = "home.html";
     } catch (error) {
-        console.error(error.code, error.message);
-        alert(error.message); // Show error to user
+      console.error(error.code, error.message);
+      alert(error.message);
     }
-});
+  });
+}
+
+// 🔵 Sign In button (for sign-in
+
