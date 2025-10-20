@@ -169,5 +169,39 @@
          </div>
       </section>
       <script src="../script2.js" type="text/javascript" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script><script src="https://cdn.prod.website-files.com/68f2b8c96dbaec6591ca9be7/js/webflow.schunk.36b8fb49256177c8.js" type="text/javascript"></script><script src="../script3.js" type="text/javascript"></script><script src="https://cdn.prod.website-files.com/68f2b8c96dbaec6591ca9be7/js/webflow.3abe8662.1f9af8b936598cb6.js" type="text/javascript"></script>
+  <script>
+document.addEventListener("DOMContentLoaded", () => {
+  const menuBtn = document.querySelector(".menu_icon");
+  const menuPanel = document.querySelector(".menu_open");
+  const closeIcon = document.querySelector(".menu_open svg");
+
+  if (!menuBtn || !menuPanel) return;
+
+  // Open menu on click
+  menuBtn.addEventListener("click", () => {
+    menuPanel.style.display = "flex"; // show the menu
+    menuPanel.style.flexDirection = "column";
+    menuPanel.style.alignItems = "center";
+    menuPanel.style.justifyContent = "center";
+    document.body.style.overflow = "hidden"; // prevent scroll
+  });
+
+  // Close menu when clicking the close icon or outside area
+  closeIcon.addEventListener("click", () => {
+    menuPanel.style.display = "none";
+    document.body.style.overflow = "auto";
+  });
+
+  // Optional: close menu when clicking outside of it
+  menuPanel.addEventListener("click", (e) => {
+    if (e.target === menuPanel) {
+      menuPanel.style.display = "none";
+      document.body.style.overflow = "auto";
+    }
+  });
+});
+</script>
+
+   
    </body>
 </html>
