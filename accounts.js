@@ -31,12 +31,11 @@ import {
 } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-auth.js";
 
 
-
 // Get page elements if they exist
-const signupBtn = document.getElementById("signupBtn");
-const signinBtn = document.getElementById("signinBtn");
-const emailInput = document.getElementById("email");
-const passwordInput = document.getElementById("password");
+// const signupBtn = document.getElementById("signupBtn");
+// const signinBtn = document.getElementById("signinBtn");
+// const emailInput = document.getElementById("email");
+// const passwordInput = document.getElementById("password");
 
 // 🟢 Auto-login: redirect if user is already signed in
 onAuthStateChanged(auth, (user) => {
@@ -66,5 +65,24 @@ if (signupBtn) {
   });
 }
 
-// 🔵 Sign In button (for sign-in
+  // Signup logic
+  document.addEventListener("DOMContentLoaded", () => {
+    const signupBtn = document.getElementById('signupBtn');
+    signupBtn.addEventListener('click', async () => {
+      const email = document.getElementById('email').value;
+      const password = document.getElementById('password').value;
+
+      try {
+        const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+        const user = userCredential.user;
+        console.log("User created:", user.email);
+
+        // Redirect to home page
+        window.location.href = 'Home/home.html';
+      } catch (error) {
+        console.error("Error signing up:", error.message);
+        alert(error.message);
+      }
+    });
+  });
 
