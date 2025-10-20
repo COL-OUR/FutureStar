@@ -21,14 +21,22 @@
 
     /* Centered box */
     .signup-box {
-      background-color: #f9f7ff;
-      border-radius: 1rem;
-      padding: 2rem;
-      width: 100%;
-      max-width: 400px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-      text-align: center;
-    }
+  background-color: #f9f7ff;
+  border-radius: 1rem;
+  padding: 2rem;
+  width: 100%;
+  max-width: 400px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  
+  /* Center everything vertically */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  text-align: center;
+  min-height: 400px; /* ensures some vertical space */
+}
 
     /* Input fields */
     .signup-box input {
