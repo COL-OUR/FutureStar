@@ -37,37 +37,12 @@ import {
 // const emailInput = document.getElementById("email");
 // const passwordInput = document.getElementById("password");
 
-// accounts.js
-// Firebase Sign Up Authentication
+//inputs 
+const email = document.getElementById('email'). value; 
+const password = document. getElementById('password') .value;
 
-// Import the Firebase SDK (these URLs are official CDN modules)
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.14.0/firebase-app.js";
-import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.14.0/firebase-auth.js";
-
-// Handle sign-up button click
-document.addEventListener("DOMContentLoaded", () => {
-  const signupBtn = document.getElementById("signupBtn");
-
-  signupBtn.addEventListener("click", async () => {
-    const email = document.getElementById("email").value.trim();
-    const password = document.getElementById("password").value.trim();
-
-    if (!email || !password) {
-      alert("Please fill in both email and password.");
-      return;
-    }
-
-    try {
-      // Create the user in Firebase
-      const userCredential = await createUserWithEmailAndPassword(auth, email, password);
-      const user = userCredential.user;
-
-      console.log("User created:", user.email);
-      alert("Account created successfully!");
-      window.location.href = "Home/home.html"; // Redirect to home
-    } catch (error) {
-      console.error("Error signing up:", error.message);
-      alert(error.message);
-    }
-  });
-});
+//submit button 
+const submit = document.getElementById('signupBtn'); submit. addEventListener"click", function (event) { 
+  event.preventDefault()  
+    alert(5) 
+})
