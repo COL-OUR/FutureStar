@@ -1,9 +1,12 @@
 // Import Firebase SDK modules from CDN
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-app.js";
+import { initializeApp } from "https://www.gstatic.com/firebasejs/12.4.0/firebase-app.js";
 import { 
   getAuth, 
-  createUserWithEmailAndPassword 
-} from "https://www.gstatic.com/firebasejs/10.6.0/firebase-auth.js";
+  createUserWithEmailAndPassword, 
+  signInWithEmailAndPassword
+} from "https://www.gstatic.com/firebasejs/12.4.0/firebase-app.js";
+
+import { getFirestore, setDoc, doc } from "https://www.gstatic.com/firebasejs/12.4.0/firebase-firestore.js";
 
 // Firebase configuration
 const firebaseConfig = {
