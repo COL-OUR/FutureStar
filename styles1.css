@@ -2614,7 +2614,26 @@ textarea.w-input, textarea.w-select {
   margin-bottom: 2rem; /* space between each menu item */
 }
 
+/* Sign Up Button */
+.signup-btn {
+    position: fixed;          /* stays at top-right when scrolling */
+    top: 2rem;                /* margin from top */
+    right: 2rem;              /* margin from right */
+    background-color: #4000f1; /* button box color */
+    color: #f8f8f8;           /* text color */
+    text-decoration: none;     /* removes underline */
+    padding: 0.8rem 1.5rem;    /* space inside the button */
+    border-radius: 0.5rem;     /* rounded corners */
+    font-weight: bold;
+    font-size: 1rem;
+    transition: opacity 0.3s;
+    z-index: 1000;             /* ensures it stays on top */
+    display: inline-block;      /* ensures proper box */
+}
 
+.signup-btn:hover {
+    opacity: 0.7;              /* hover effect */
+}
 
 
 #w-node-bd7b7ef6-ba26-df00-4b4a-ff5bc44ba66e-91ca9bf9 {
