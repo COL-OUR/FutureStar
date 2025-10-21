@@ -1,11 +1,11 @@
-// Import the functions you need from the SDKs you need
-import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
+// Import Firebase SDK modules from CDN
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-app.js";
+import { 
+  getAuth, 
+  createUserWithEmailAndPassword 
+} from "https://www.gstatic.com/firebasejs/10.6.0/firebase-auth.js";
 
-// Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+// Firebase configuration
 const firebaseConfig = {
   apiKey: "AIzaSyDN6J8OMON2LWsQy52yUDISQehDMTsk1bw",
   authDomain: "futurestar-08.firebaseapp.com",
@@ -18,31 +18,34 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
+const auth = getAuth(app);
 
-// Import Firebase modules
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-app.js";
-import { 
-  getAuth, 
-  createUserWithEmailAndPassword, 
-  signInWithEmailAndPassword, 
-  onAuthStateChanged, 
-  signOut 
-} from "https://www.gstatic.com/firebasejs/10.6.0/firebase-auth.js";
+// Wait for DOM to load before accessing elements
+document.addEventListener("DOMContentLoaded", () => {
+  const signupBtn = document.getElementById("signupBtn");
 
+  signupBtn.addEventListener("click", async (event) => {
+    event.preventDefault();
 
-// Get page elements if they exist
-// const signupBtn = document.getElementById("signupBtn");
-// const signinBtn = document.getElementById("signinBtn");
-// const emailInput = document.getElementById("email");
-// const passwordInput = document.getElementById("password");
+    const email = document.getElementById("email").value.trim();
+    const password = document.getElementById("password").value.trim();
 
-//inputs 
-const email = document.getElementById('email'). value; 
-const password = document. getElementById('password') .value;
+    if (!email || !password) {
+      alert("Please fill out both fields.");
+      return;
+    }
 
-//submit button 
-const submit = document.getElementById('signupBtn'); submit. addEventListener"click", function (event) { 
-  event.preventDefault()  
-    alert(5) 
-})
+    try {
+      console.log("Attempting sign up with:", email);
+      const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+      const user = userCredential.user;
+
+      console.log("User successfully created:", user.email);
+      alert("Account created successfully!");
+      window.location.href = "Home/home.html";
+    } catch (error) {
+      console.error("Firebase Error:", error.code, error.message);
+      alert("Error: " + error.message);
+    }
+  });
+});
