@@ -37,52 +37,37 @@ import {
 // const emailInput = document.getElementById("email");
 // const passwordInput = document.getElementById("password");
 
-// 🟢 Auto-login: redirect if user is already signed in
-onAuthStateChanged(auth, (user) => {
-  if (user) {
-    console.log("User already signed in:", user.email);
-    if (!window.location.pathname.includes("home.html")) {
-      window.location.href = "home.html";
-    }
-  }
-});
+// accounts.js
+// Firebase Sign Up Authentication
 
-// 🟣 Sign Up button
-if (signupBtn) {
+// Import the Firebase SDK (these URLs are official CDN modules)
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.14.0/firebase-app.js";
+import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.14.0/firebase-auth.js";
+
+// Handle sign-up button click
+document.addEventListener("DOMContentLoaded", () => {
+  const signupBtn = document.getElementById("signupBtn");
+
   signupBtn.addEventListener("click", async () => {
-    const email = emailInput.value;
-    const password = passwordInput.value;
+    const email = document.getElementById("email").value.trim();
+    const password = document.getElementById("password").value.trim();
+
+    if (!email || !password) {
+      alert("Please fill in both email and password.");
+      return;
+    }
 
     try {
+      // Create the user in Firebase
       const userCredential = await createUserWithEmailAndPassword(auth, email, password);
       const user = userCredential.user;
-      console.log("User signed up:", user.email);
-      window.location.href = "Home/home.html";
+
+      console.log("User created:", user.email);
+      alert("Account created successfully!");
+      window.location.href = "Home/home.html"; // Redirect to home
     } catch (error) {
-      console.error(error.code, error.message);
+      console.error("Error signing up:", error.message);
       alert(error.message);
     }
   });
-}
-
-  // Signup logic
-  document.addEventListener("DOMContentLoaded", () => {
-    const signupBtn = document.getElementById('signupBtn');
-    signupBtn.addEventListener('click', async () => {
-      const email = document.getElementById('email').value;
-      const password = document.getElementById('password').value;
-
-      try {
-        const userCredential = await createUserWithEmailAndPassword(auth, email, password);
-        const user = userCredential.user;
-        console.log("User created:", user.email);
-
-        // Redirect to home page
-        window.location.href = 'Home/home.html';
-      } catch (error) {
-        console.error("Error signing up:", error.message);
-        alert(error.message);
-      }
-    });
-  });
-
+});
