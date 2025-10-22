@@ -12,11 +12,24 @@
     <div class="auth-box">
       <h2>Welcome Back</h2>
 
-      <input type="email" id="email" placeholder="Email" />
-      
-      <div class="password-field">
+      <div class="input-group">
+        <input type="email" id="email" placeholder="Email" />
+      </div>
+
+      <div class="input-group password-field">
         <input type="password" id="password" placeholder="Password" />
-        <span class="toggle-password" id="togglePassword">👁️</span>
+        <span class="toggle-password" id="togglePassword" title="Show/Hide Password">
+          <svg id="eyeClosed" xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="#555">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M3 3l18 18M10.585 10.585A3 3 0 0113.415 13.415M9.878 9.878a4.5 4.5 0 016.364 6.364M12 5c-7 0-9 7-9 7s2 7 9 7 9-7 9-7-2-7-9-7z" />
+          </svg>
+          <svg id="eyeOpen" xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="#555" style="display:none;">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M2.458 12C3.732 7.943 7.523 5 12 5c4.477 0 8.268 2.943 9.542 7-1.274 4.057-5.065 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+          </svg>
+        </span>
       </div>
 
       <button id="signinBtn">Sign In</button>
