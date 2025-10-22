@@ -23,26 +23,28 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 
-// Password toggle
 document.addEventListener("DOMContentLoaded", () => {
-  const toggle = document.getElementById("togglePassword");
   const passwordInput = document.getElementById("password");
+  const toggle = document.getElementById("togglePassword");
+  const eyeOpen = document.getElementById("eyeOpen");
+  const eyeClosed = document.getElementById("eyeClosed");
 
   if (toggle && passwordInput) {
     toggle.addEventListener("click", () => {
-      const type = passwordInput.type === "password" ? "text" : "password";
-      passwordInput.type = type;
+      const show = passwordInput.type === "password";
+      passwordInput.type = show ? "text" : "password";
+      eyeOpen.style.display = show ? "inline" : "none";
+      eyeClosed.style.display = show ? "none" : "inline";
     });
   }
 
-  // Sign Up
   const signupBtn = document.getElementById("signupBtn");
   if (signupBtn) {
     signupBtn.addEventListener("click", async (e) => {
       e.preventDefault();
       const email = document.getElementById("email").value.trim();
       const password = document.getElementById("password").value.trim();
-      if (!email || !password) return alert("Please enter all fields");
+      if (!email || !password) return alert("Please fill all fields");
 
       try {
         await createUserWithEmailAndPassword(auth, email, password);
@@ -54,14 +56,13 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // Sign In
   const signinBtn = document.getElementById("signinBtn");
   if (signinBtn) {
     signinBtn.addEventListener("click", async (e) => {
       e.preventDefault();
       const email = document.getElementById("email").value.trim();
       const password = document.getElementById("password").value.trim();
-      if (!email || !password) return alert("Please enter all fields");
+      if (!email || !password) return alert("Please fill all fields");
 
       try {
         await signInWithEmailAndPassword(auth, email, password);
