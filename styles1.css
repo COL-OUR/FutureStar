@@ -211,7 +211,7 @@ body {
   background-color: #fff;
   min-height: 100%;
   margin: 0;
-  font-family: Arial, sans-serif;
+  font-family: Lexend, sans-serif;
   font-size: 14px;
   line-height: 20px;
 }
@@ -1963,7 +1963,7 @@ textarea.w-input, textarea.w-select {
   margin-top: 0;
   margin-left: 0;
   padding: 2rem;
-  font-family: Lato, sans-serif;
+  font-family: Lexend, sans-serif;
   font-size: 5rem;
   font-weight: 900;
   line-height: 100px;
@@ -1975,7 +1975,7 @@ textarea.w-input, textarea.w-select {
   margin-top: 0;
   margin-left: 0;
   padding: 0 2rem 2rem;
-  font-family: Lato, sans-serif;
+  font-family: Lexend, sans-serif;
   font-size: 1.2rem;
   font-weight: 400;
   line-height: 30px;
@@ -2016,7 +2016,7 @@ textarea.w-input, textarea.w-select {
   align-items: center;
   min-height: 100svh;
   max-height: 100svh;
-  font-family: Lato, sans-serif;
+  font-family: Lexend, sans-serif;
   display: flex;
 }
 
