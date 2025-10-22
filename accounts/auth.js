@@ -1,19 +1,23 @@
-// auth.js - handles eye toggle + simple firebase signup/signin
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-app.js";
-import {
-  getAuth,
-  createUserWithEmailAndPassword,
-  signInWithEmailAndPassword
-} from "https://www.gstatic.com/firebasejs/10.6.0/firebase-auth.js";
 
-/* --------- Firebase config (replace with yours) ---------- */
+// Import Firebase SDK modules from CDN
+import { initializeApp } from "https://www.gstatic.com/firebasejs/12.4.0/firebase-app.js";
+import { 
+  getAuth, 
+  createUserWithEmailAndPassword, 
+  signInWithEmailAndPassword
+} from "https://www.gstatic.com/firebasejs/12.4.0/firebase-app.js";
+
+import { getFirestore, setDoc, doc } from "https://www.gstatic.com/firebasejs/12.4.0/firebase-firestore.js";
+
+// Firebase configuration
 const firebaseConfig = {
   apiKey: "AIzaSyDN6J8OMON2LWsQy52yUDISQehDMTsk1bw",
   authDomain: "futurestar-08.firebaseapp.com",
   projectId: "futurestar-08",
   storageBucket: "futurestar-08.firebasestorage.app",
   messagingSenderId: "465929730039",
-  appId: "1:465929730039:web:54a6d51a3a8fb6ccb720f2"
+  appId: "1:465929730039:web:54a6d51a3a8fb6ccb720f2",
+  measurementId: "G-MDX2WDZV0Y"
 };
 
 const app = initializeApp(firebaseConfig);
