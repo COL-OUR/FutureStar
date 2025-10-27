@@ -2143,6 +2143,21 @@ textarea.w-input, textarea.w-select {
   padding-bottom: 2rem;
 }
 
+.story-link {
+  display: block;
+  text-align: center;
+  font-size: 1.4rem;
+  margin: 2rem 0;
+  color: #ffffff;
+  text-decoration: none;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+}
+
+.story-link:hover {
+  opacity: 0.7;
+}
+
 .ikonik-6k9ok {
   color: #f8f8f8;
   width: 2rem;
