@@ -2146,9 +2146,9 @@ textarea.w-input, textarea.w-select {
 .story-link {
   display: block;
   text-align: center;
-  font-size: 1.4rem;
+  font-size: 1rem;
   margin: 2rem 0;
-  color: #ffffff;
+  color: #f8f8f8;
   text-decoration: none;
   cursor: pointer;
   transition: opacity 0.3s ease;
