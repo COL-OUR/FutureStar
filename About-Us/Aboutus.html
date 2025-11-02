@@ -3,108 +3,47 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>About Us | FutureStar</title>
-  <link rel="stylesheet" href="../styles1.css">
-
-  <style>
-    body {
-      margin: 0;
-      font-family: Lexend, sans-serif;
-      background-color: #f8f8f8;
-      color: #23027d;
-    }
-
-    /* Navbar (optional, similar to Home) */
-    .navbar {
-      background-color: #4000f1;
-      color: #f9f7ff;
-      padding: 1rem 2rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 700;
-      font-size: 1.5rem;
-    }
-
-    .about-container {
-      max-width: 800px;
-      margin: 4rem auto;
-      background-color: #f9f7ff;
-      border-radius: 1rem;
-      padding: 2rem 3rem;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    }
-
-    .about-container h1 {
-      color: #4000f1;
-      text-align: center;
-      margin-bottom: 1.5rem;
-      font-size: 2rem;
-    }
-
-    .about-container p {
-      line-height: 1.7;
-      font-size: 1.1rem;
-      text-align: justify;
-      margin-bottom: 1.5rem;
-    }
-
-    .about-container h2 {
-      color: #4000f1;
-      margin-top: 2rem;
-      font-size: 1.4rem;
-    }
-
-    .about-footer {
-      text-align: center;
-      margin-top: 2rem;
-      font-size: 0.9rem;
-      color: #666;
-    }
-
-    a {
-      color: #4000f1;
-      text-decoration: none;
-      font-weight: 600;
-    }
-
-    a:hover {
-      text-decoration: underline;
-    }
-  </style>
+  <title>About Us - FutureStar</title>
+  <link href="../styles1.css" rel="stylesheet" type="text/css">
+  <script src="../script1.js" defer></script> <!-- or whichever script handles menu toggle -->
 </head>
-<body>
+<body class="body-2">
+  
+  <!-- Navbar copied from Home page -->
+  <div class="div-block-5">
+    <a href="../index.html">
+      <img
+        alt="FutureStar Logo"
+        class="logo_mini"
+        src="https://cdn.prod.website-files.com/68f2b8c96dbaec6591ca9be7/68f396aedf65e4092addaedc_FutureStar_Purple.svg"
+      />
+    </a>
+    <div class="futurestar">FutureStar</div>
+    <svg app="ikonik" class="menu_icon" fill="none" height="64" viewBox="0 0 24 24" width="64" xmlns="http://www.w3.org/2000/svg">
+      <!-- your menu icon paths here -->
+    </svg>
+  </div>
 
-  <div class="navbar">FutureStar</div>
+  <div style="display:none" class="menu_open">
+    <a href="../About-Us/Aboutus.html" class="text-block-20">About Us</a>
+    <a href="https://nedbtrme.formester.com/f/rAwFw1kxC" class="text-block-20-copy">Add Your Story</a>
+    <div class="text-block-20-copy">Instagram</div>
+    <svg ... class="menu_close"></svg>
+  </div>
 
-  <div class="about-container">
+  <!-- About Us content -->
+  <section class="about-section">
     <h1>About FutureStar</h1>
     <p>
-      FutureStar is a platform that connects young people with the wisdom of adults. 
-      We believe that guidance, mentorship, and shared experiences can help shape brighter futures.
+      FutureStar is a platform designed to connect students with the experiences and insights of adults 
+      who have walked different paths in life. We aim to make the journey of planning your future 
+      more informed, inspiring, and meaningful.
     </p>
-
     <p>
-      Through FutureStar, students can learn from real stories, gain practical advice, 
-      and make more informed decisions about their careers and aspirations.
+      Whether you're exploring careers, studying options, or life lessons, FutureStar brings real stories 
+      to help you make confident choices about your future.
     </p>
-
-    <h2>Our Mission</h2>
-    <p>
-      To empower the next generation by making mentorship accessible, personal, 
-      and inspiring — helping each “future star” find their path forward.
-    </p>
-
-    <h2>Share Your Story</h2>
-    <p>
-      Are you an adult who wants to inspire others?  
-      <a href="https://nedbtrme.formester.com/f/rAwFw1kxC" target="_blank">Share your story here!</a>
-    </p>
-
-    <div class="about-footer">
-      &copy; 2025 FutureStar. All rights reserved.
-    </div>
-  </div>
+  </section>
 
 </body>
 </html>
