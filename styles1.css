@@ -2147,9 +2147,9 @@ textarea.w-input, textarea.w-select {
   padding-bottom: 2rem;
 }
 
-
-.story-link:hover {
+.menu_open a:hover {
   opacity: 0.7;
+  transition: opacity 0.3s ease;
 }
 
 .ikonik-6k9ok {
