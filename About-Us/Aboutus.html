@@ -1,49 +1,116 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>About Us - FutureStar</title>
-  <link href="../styles1.css" rel="stylesheet" type="text/css">
-  <script src="../script1.js" defer></script> <!-- or whichever script handles menu toggle -->
-</head>
-<body class="body-2">
-  
-  <!-- Navbar copied from Home page -->
-  <div class="div-block-5">
-    <a href="../index.html">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About Us - FutureStar</title>
+
+    <!-- Corrected CSS link -->
+    <link href="../styles1.css" rel="stylesheet" type="text/css" />
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin="anonymous" />
+    <script
+      src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js"
+      type="text/javascript"
+    ></script>
+    <script type="text/javascript">
+      WebFont.load({
+        google: {
+          families: [
+            "Lexend:100,200,300,regular,500,600,700,800,900",
+            "Inter:100,200,300,regular,500,600,700,800,900",
+          ],
+        },
+      });
+    </script>
+  </head>
+
+  <body class="body-2">
+    <!-- Navbar (copied from Home) -->
+    <div class="div-block-5">
       <img
+        src="https://cdn.prod.website-files.com/68f2b8c96dbaec6591ca9be7/68f396aedf65e4092addaedc_FutureStar_Purple.svg"
+        loading="lazy"
         alt="FutureStar Logo"
         class="logo_mini"
-        src="https://cdn.prod.website-files.com/68f2b8c96dbaec6591ca9be7/68f396aedf65e4092addaedc_FutureStar_Purple.svg"
       />
-    </a>
-    <div class="futurestar">FutureStar</div>
-    <svg app="ikonik" class="menu_icon" fill="none" height="64" viewBox="0 0 24 24" width="64" xmlns="http://www.w3.org/2000/svg">
-      <!-- your menu icon paths here -->
-    </svg>
-  </div>
+      <div class="futurestar">FutureStar</div>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="64"
+        height="64"
+        viewBox="0 0 24 24"
+        fill="none"
+        class="menu_icon"
+      >
+        <path
+          fill-rule="evenodd"
+          clip-rule="evenodd"
+          d="M19.75 17C19.75 16.5858 19.4142 16.25 19 16.25H5C4.58579 16.25 4.25 16.5858 4.25 17C4.25 17.4142 4.58579 17.75 5 17.75H19C19.4142 17.75 19.75 17.4142 19.75 17Z"
+          fill="currentColor"
+        ></path>
+        <path
+          fill-rule="evenodd"
+          clip-rule="evenodd"
+          d="M19.75 7C19.75 6.58579 19.4142 6.25 19 6.25H5C4.58579 6.25 4.25 6.58579 4.25 7C4.25 7.41421 4.58579 7.75 5 7.75H19C19.4142 7.75 19.75 7.41421 19.75 7Z"
+          fill="currentColor"
+        ></path>
+        <path
+          fill-rule="evenodd"
+          clip-rule="evenodd"
+          d="M19.75 12C19.75 11.5858 19.4142 11.25 19 11.25H5C4.58579 11.25 4.25 11.5858 4.25 12C4.25 12.4142 4.58579 12.75 5 12.75H19C19.4142 12.75 19.75 12.4142 19.75 12Z"
+          fill="currentColor"
+        ></path>
+      </svg>
+    </div>
 
-  <div style="display:none" class="menu_open">
-    <a href="../About-Us/Aboutus.html" class="text-block-20">About Us</a>
-    <a href="https://nedbtrme.formester.com/f/rAwFw1kxC" class="text-block-20-copy">Add Your Story</a>
-    <div class="text-block-20-copy">Instagram</div>
-    <svg ... class="menu_close"></svg>
-  </div>
+    <div style="display:none" class="menu_open">
+      <a href="../About-Us/Aboutus.html" class="text-block-20">About Us</a>
+      <a
+        class="text-block-20-copy"
+        href="https://nedbtrme.formester.com/f/rAwFw1kxC"
+        target="_blank"
+        >Share your story here!</a
+      >
+      <div class="text-block-20-copy">Instagram</div>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="64"
+        height="64"
+        fill="none"
+        viewBox="0 0 16 16"
+        class="close_button"
+      >
+        <path
+          fill="currentColor"
+          d="m9.414 8 5.293-5.293a1 1 0 1 0-1.414-1.414L8 6.586 2.707 1.293a1 1 0 0 0-1.414 1.414L6.586 8l-5.293 5.293a1 1 0 1 0 1.414 1.414L8 9.414l5.293 5.293a1 1 0 0 0 1.414-1.414L9.414 8Z"
+        ></path>
+      </svg>
+    </div>
 
-  <!-- About Us content -->
-  <section class="about-section">
-    <h1>About FutureStar</h1>
-    <p>
-      FutureStar is a platform designed to connect students with the experiences and insights of adults 
-      who have walked different paths in life. We aim to make the journey of planning your future 
-      more informed, inspiring, and meaningful.
-    </p>
-    <p>
-      Whether you're exploring careers, studying options, or life lessons, FutureStar brings real stories 
-      to help you make confident choices about your future.
-    </p>
-  </section>
+    <!-- About Us Content -->
+    <section class="about-section">
+      <h1>About FutureStar</h1>
+      <p>
+        FutureStar is a student-led initiative built to connect high school students with inspiring
+        adults from different fields. Our goal is to make real experiences accessible — so young
+        people can explore, learn, and dream without limits.
+      </p>
 
-</body>
+      <p>
+        Everyone’s path is different, and the future can feel uncertain. FutureStar helps bridge
+        that gap by sharing honest stories of how people found their passions, overcame setbacks,
+        and grew through their experiences.
+      </p>
+
+      <p>
+        We believe every story has the power to inspire. Whether you’re here to read, learn, or
+        share your own, welcome to FutureStar.
+      </p>
+    </section>
+
+    <script src="../script3.js" type="text/javascript"></script>
+  </body>
 </html>
