@@ -21,9 +21,9 @@
       font-family: 'Lexend', sans-serif;
     }
 
-    /* Navbar menu hover */
+    /* Navbar menu links */
     .menu_open a {
-      color: #23027d;
+      color: #f8f8f8; /* off-white */
       text-decoration: none;
       transition: opacity 0.3s ease;
     }
@@ -39,15 +39,18 @@
       margin: 0 auto;
     }
 
-    .about-content h1 {
+    .about-content h1,
+    .about-content h2 {
       color: #4000f1;
+    }
+
+    .about-content h1 {
       text-align: center;
       font-size: 2.5rem;
       margin-bottom: 2rem;
     }
 
     .about-content h2 {
-      color: #4000f1;
       font-size: 1.6rem;
       margin-top: 4rem;
     }
@@ -55,7 +58,13 @@
     .about-content p {
       line-height: 1.8;
       font-size: 1.2rem;
-      margin-bottom: 2.5rem; /* increased spacing between paragraphs */
+      margin-bottom: 2.5rem; /* increased spacing */
+      color: #23027d; /* paragraph text color */
+    }
+
+    .about-content a {
+      color: #4000f1; /* links inside paragraphs */
+      text-decoration: underline;
     }
   </style>
 </head>
@@ -146,3 +155,4 @@
 
 </body>
 </html>
+
