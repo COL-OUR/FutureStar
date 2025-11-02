@@ -4,9 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>About Us | FutureStar</title>
-  <link rel="stylesheet" href="../styles1.css">
 
-  <!-- Google Fonts: Lexend -->
+  <!-- Favicon (same as home page) -->
+  <link href="https://cdn.prod.website-files.com/68f2b8c96dbaec6591ca9be7/68f3962db2585150b8ee4a54_Asset%208.png" rel="shortcut icon" type="image/x-icon">
+
+  <!-- Google Fonts -->
   <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js" type="text/javascript"></script>
   <script type="text/javascript">
     WebFont.load({  
@@ -14,76 +16,54 @@
     });
   </script>
 
+  <!-- CSS -->
+  <link rel="stylesheet" href="../styles1.css">
+
   <style>
-    /* Body background & font */
-    body.body-2 {
+    body {
       background-color: #f9f7ff;
       font-family: 'Lexend', sans-serif;
     }
 
-    /* Navbar menu links */
+    main p {
+      color: #23027d;
+      line-height: 1.8;
+      font-size: 1.2rem;
+      margin-bottom: 2.5rem; /* increased margin between paragraphs */
+    }
+
+    main h1, main h2 {
+      color: #4000f1;
+    }
+
+    /* Menu links hover effect */
     .menu_open a {
-      color: #f8f8f8; /* off-white */
+      color: #f8f8f8;
       text-decoration: none;
-      transition: opacity 0.3s ease;
+      transition: opacity 0.3s;
     }
 
     .menu_open a:hover {
       opacity: 0.7;
     }
-
-    /* About page content */
-    .about-content {
-      padding: 4rem 2rem;
-      max-width: 1000px;
-      margin: 0 auto;
-    }
-
-    .about-content h1,
-    .about-content h2 {
-      color: #4000f1;
-    }
-
-    .about-content h1 {
-      text-align: center;
-      font-size: 2.5rem;
-      margin-bottom: 2rem;
-    }
-
-    .about-content h2 {
-      font-size: 1.6rem;
-      margin-top: 4rem;
-    }
-
-    .about-content p {
-      line-height: 1.8;
-      font-size: 1.2rem;
-      margin-bottom: 2.5rem; /* increased spacing */
-      color: #23027d; /* paragraph text color */
-    }
-
-    .about-content a {
-      color: #4000f1; /* links inside paragraphs */
-      text-decoration: underline;
-    }
   </style>
 </head>
 <body class="body-2">
 
-  <!-- Navbar -->
+  <!-- Navbar (same as home page) -->
   <div class="div-block-4">
     <div style="display:none" class="menu_open">
       <a href="../Home/home.html" class="text-block-20">Home</a>
       <a href="../About-Us/Aboutus.html" class="text-block-20">About Us</a>
-      <a class="text-block-20-copy story-link" 
-         href="https://nedbtrme.formester.com/f/rAwFw1kxC" target="_blank">
-         Share your story here!
+      <a class="text-block-20-copy story-link" href="https://nedbtrme.formester.com/f/rAwFw1kxC" target="_blank">
+        Share your story here!
       </a>
       <div class="text-block-20-copy">Instagram</div>
-      <svg data-w-id="5a1aa0c8-c7fe-d4a5-074a-3dc5b63be088" xmlns="http://www.w3.org/2000/svg" width="64" height="64" fill="none" viewbox="0 0 16 16" class="ikonik-6k9ok">
+      <svg data-w-id="5a1aa0c8-c7fe-d4a5-074a-3dc5b63be088" xmlns="http://www.w3.org/2000/svg" width="64" height="64" fill="none" viewBox="0 0 16 16" class="ikonik-6k9ok">
         <path fill="currentColor" d="m9.414 8 5.293-5.293a1 1 0 1 0-1.414-1.414L8 6.586 2.707 1.293a1 1 0 0 0-1.414 1.414L6.586 8l-5.293 5.293a1 1 0 1 0 1.414 1.414L8 9.414l5.293 5.293a1 1 0 0 0 1.414-1.414L9.414 8Z"></path>
       </svg>
     </div>
+
     <div class="div-block-5">
       <img src="https://cdn.prod.website-files.com/68f2b8c96dbaec6591ca9be7/68f396aedf65e4092addaedc_FutureStar_Purple.svg" loading="lazy" alt="" class="logo_mini">
       <div class="futurestar">FutureStar</div>
@@ -96,8 +76,8 @@
   </div>
 
   <!-- About Us Content -->
-  <main class="about-content">
-    <h1>About FutureStar</h1>
+  <main style="padding: 4rem 2rem; max-width: 1000px; margin: 0 auto;">
+    <h1 style="font-size:2.5rem; text-align:center; margin-bottom:2rem;">About FutureStar</h1>
 
     <p>
       FutureStar is a platform that connects young people with the wisdom of adults. 
@@ -109,20 +89,20 @@
       and make more informed decisions about their careers and aspirations.
     </p>
 
-    <h2>Our Mission</h2>
+    <h2 style="font-size:1.6rem; margin-top:4rem;">Our Mission</h2>
     <p>
       To empower the next generation by making mentorship accessible, personal, 
       and inspiring — helping each “future star” find their path forward.
     </p>
 
-    <h2>Share Your Story</h2>
+    <h2 style="font-size:1.6rem; margin-top:4rem;">Share Your Story</h2>
     <p>
       Are you an adult who wants to inspire others?  
       <a href="https://nedbtrme.formester.com/f/rAwFw1kxC" target="_blank">Share your story here!</a>
     </p>
   </main>
 
-  <!-- Navbar toggle script -->
+  <!-- Navbar toggle script (same as home page) -->
   <script>
     document.addEventListener("DOMContentLoaded", () => {
       const menuBtn = document.querySelector(".menu_icon");
@@ -155,4 +135,3 @@
 
 </body>
 </html>
-
