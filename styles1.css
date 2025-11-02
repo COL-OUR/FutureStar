@@ -2063,17 +2063,21 @@ textarea.w-input, textarea.w-select {
   margin-right: 0;
   padding: 1rem 2rem;
   display: grid;
+  position: relative; /* enables absolute positioning for children */
 }
 
 .futurestar {
   color: var(--white);
   text-align: center;
-  margin-top: auto;
-  margin-bottom: auto;
   font-family: Lexend, sans-serif;
   font-size: 2rem;
   font-weight: 700;
   line-height: 2rem;
+
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .div-block-6 {
